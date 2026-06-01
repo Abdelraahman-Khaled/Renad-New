@@ -36,7 +36,7 @@ function Target({ className }) {
 
 export default function VisionMission() {
   return (
-    <section className="relative overflow-hidden bg-primary-dark">
+    <section className="relative overflow-hidden bg-primary-dark mb-20">
       {/* ambient accents */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute -left-32 top-0 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />

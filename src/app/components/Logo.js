@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Logo({ className = "", ...props }) {
   return (
-    <a href="#top" className={`flex items-center ${className}`}>
+    <a href="/" className={`flex items-center ${className}`}>
       <Image
         src="/logo.webp"
         alt="Renad International Trading"

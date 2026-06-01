@@ -5,10 +5,10 @@ import Logo from "./Logo";
 import { Menu, Search, Linkedin, XTwitter, Instagram } from "./icons";
 
 const links = [
-  { label: "About Us", href: "#about" },
-  { label: "Products & Brands", href: "#brands" },
-  { label: "Blog", href: "#news" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Products & Brands", href: "/products" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const socials = [Linkedin, XTwitter, Instagram];
@@ -74,7 +74,7 @@ export default function Navbar() {
           </div>
 
           <a
-            href="#contact"
+            href="/contact"
             className={`group hidden items-center gap-2 rounded-full py-1.5 pl-5 pr-1.5 text-sm font-semibold transition-colors duration-200 sm:inline-flex ${
               light
                 ? "bg-white text-primary-dark hover:bg-cyan-50"
