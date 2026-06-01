@@ -1,5 +1,6 @@
 import { Poppins, Open_Sans } from "next/font/google";
 import "./globals.css";
+import ScrollAnimations from "./components/ScrollAnimations";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       className={`${poppins.variable} ${openSans.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-white font-sans text-slate-700">
+        <ScrollAnimations />
         {children}
       </body>
     </html>
