@@ -62,6 +62,8 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const trackRef = useRef(null);
+  const [active, setActive] = useState(0);
   const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef(null);
 
