@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>مقارنة الخطوط العربية — رناد</title>
+
+<!-- Google Fonts: all candidates -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --primary: #1799BC;
+    --primary-dark: #0B5C72;
+    --cta: #E0241C;
+    --surface: #EAF6FA;
+    --ink: #0F2A36;
+    --line: #E3EAF0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #fff;
+    color: #475569;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  .page { max-width: 1100px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .top {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Sans Arabic", sans-serif;
+    color: var(--cta);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .top h1 {
+    font-family: "Cairo", sans-serif;
+    color: var(--ink);
+    font-size: 34px;
+    font-weight: 700;
+    margin: 8px 0 6px;
+  }
+  .top p { color: #64748b; font-family: "IBM Plex Sans Arabic", sans-serif; font-size: 15px; }
+
+  /* font-size control */
+  .toolbar {
+    position: sticky; top: 0; z-index: 5;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+    margin: 28px 0 8px;
+    display: flex; gap: 18px; justify-content: center; align-items: center; flex-wrap: wrap;
+    font-family: "IBM Plex Sans Arabic", sans-serif; font-size: 13px; color: #64748b;
+  }
+  .toolbar label { display: flex; gap: 8px; align-items: center; cursor: pointer; }
+
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: 0 1px 2px rgba(11,92,114,.05), 0 6px 18px rgba(11,92,114,.07);
+    padding: 32px 36px;
+    margin-top: 28px;
+    transition: box-shadow .2s, border-color .2s;
+  }
+  .card:hover {
+    box-shadow: 0 2px 6px rgba(11,92,114,.06), 0 20px 44px rgba(11,92,114,.13);
+    border-color: #cfe4ec;
+  }
+  .card.reco { border-color: var(--primary); background: linear-gradient(180deg,#f6fcfe,#fff); }
+
+  .card-head {
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px dashed var(--line);
+  }
+  .font-name {
+    font-family: "IBM Plex Sans Arabic", sans-serif;
+    color: var(--ink); font-weight: 700; font-size: 17px;
+  }
+  .tag {
+    font-family: "IBM Plex Sans Arabic", sans-serif;
+    font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 999px;
+    background: var(--surface); color: var(--primary-dark);
+  }
+  .tag.reco { background: rgba(224,36,28,.1); color: var(--cta); }
+  .role {
+    font-family: "IBM Plex Sans Arabic", sans-serif;
+    font-size: 12px; color: #94a3b8; margin-inline-start: auto;
+  }
+
+  /* the actual specimen — applies the candidate font */
+  .specimen .h1 {
+    font-size: calc(40px * var(--scale, 1));
+    font-weight: 700; line-height: 1.15; color: var(--ink);
+    letter-spacing: -0.01em; margin-bottom: 4px;
+  }
+  .specimen .h1 .hi { color: var(--primary); }
+  .specimen .h2 {
+    font-size: calc(26px * var(--scale, 1));
+    font-weight: 700; color: var(--ink); margin: 18px 0 10px; line-height: 1.25;
+  }
+  .specimen .body {
+    font-size: calc(16px * var(--scale, 1));
+    color: #64748b; max-width: 62ch; line-height: 1.85;
+  }
+  .specimen .stats { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
+  .specimen .stat .v { font-size: calc(30px * var(--scale,1)); font-weight: 700; color: var(--primary); }
+  .specimen .stat .l { font-size: 13px; color: #94a3b8; }
+  .specimen .btn {
+    display: inline-block; margin-top: 22px;
+    background: var(--primary); color: #fff; font-weight: 600;
+    font-size: calc(14px * var(--scale,1));
+    padding: 12px 28px; border-radius: 999px;
+  }
+  .nums { direction: ltr; display: inline-block; }
+
+  /* font assignments */
+  .f-cairo   .specimen { font-family: "Cairo", sans-serif; }
+  .f-tajawal .specimen { font-family: "Tajawal", sans-serif; }
+  .f-plex    .specimen { font-family: "IBM Plex Sans Arabic", sans-serif; }
+  .f-kufi    .specimen { font-family: "Noto Kufi Arabic", sans-serif; }
+  .f-almarai .specimen { font-family: "Almarai", sans-serif; }
+  /* mixed combo: kufi headings + tajawal body */
+  .f-combo .specimen .h1,
+  .f-combo .specimen .h2 { font-family: "Noto Kufi Arabic", sans-serif; }
+  .f-combo .specimen .body,
+  .f-combo .specimen .stat,
+  .f-combo .specimen .btn { font-family: "Tajawal", sans-serif; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div class="eyebrow">رناد للتجارة الدولية — هوية بصرية</div>
+    <h1>مقارنة الخطوط العربية</h1>
+    <p>نفس نصوص الموقع بألوان الهوية. قارن الإحساس والوزن والوضوح — كل بطاقة بخط مختلف.</p>
+  </div>
+
+  <div class="toolbar">
+    <span>حجم الخط:</span>
+    <label><input type="radio" name="scale" value="0.85"> صغير</label>
+    <label><input type="radio" name="scale" value="1" checked> عادي</label>
+    <label><input type="radio" name="scale" value="1.2"> كبير</label>
+  </div>
+
+  <!-- TEMPLATE repeated per font -->
+  <!-- 1. IBM Plex Sans Arabic (recommended single) -->
+  <div class="card reco f-plex">
+    <div class="card-head">
+      <span class="font-name">IBM Plex Sans Arabic</span>
+      <span class="tag reco">موصى به</span>
+      <span class="role">احترافي · corporate · أقرب لإحساس Open Sans</span>
+    </div>
+    <div class="specimen">
+      <div class="h1">ربط العلامات التجارية العالمية <span class="hi">بأسواق الخليج</span></div>
+      <div class="body">نوصل أبرز العلامات التجارية الاستهلاكية العالمية إلى رفوف التجزئة والصيدليات في السعودية والإمارات وقطر والكويت والبحرين وعُمان.</div>
+      <div class="h2">شريك توزيع مقره الإمارات، مصمَّم للخليج</div>
+      <div class="body">رناد للتجارة الدولية متخصصة في إدخال العلامات التجارية الاستهلاكية العالمية إلى أسواق الخليج. نحن الجسر بين العلامات العالمية وشبكات التجزئة الإقليمية — ندير الوصول للسوق والامتثال والتوزيع من البداية للنهاية.</div>
+      <div class="stats">
+        <div class="stat"><div class="v"><span class="nums">+17</span></div><div class="l">شريك توزيع</div></div>
+        <div class="stat"><div class="v"><span class="nums">100%</span></div><div class="l">تركيز على الخليج</div></div>
+        <div class="stat"><div class="v"><span class="nums">2026</span></div><div class="l">عام التأسيس</div></div>
+      </div>
+      <span class="btn">كن شريكنا</span>
+    </div>
+  </div>
+
+  <!-- 2. Combo: Noto Kufi headings + Tajawal body (recommended pairing) -->
+  <div class="card reco f-combo">
+    <div class="card-head">
+      <span class="font-name">Noto Kufi (عناوين) + Tajawal (نص)</span>
+      <span class="tag reco">موصى به · تباين</span>
+      <span class="role">يقابل دور Poppins + Open Sans بالظبط</span>
+    </div>
+    <div class="specimen">
+      <div class="h1">ربط العلامات التجارية العالمية <span class="hi">بأسواق الخليج</span></div>
+      <div class="body">نوصل أبرز العلامات التجارية الاستهلاكية العالمية إلى رفوف التجزئة والصيدليات في السعودية والإمارات وقطر والكويت والبحرين وعُمان.</div>
+      <div class="h2">شريك توزيع مقره الإمارات، مصمَّم للخليج</div>
+      <div class="body">رناد للتجارة الدولية متخصصة في إدخال العلامات التجارية الاستهلاكية العالمية إلى أسواق الخليج. نحن الجسر بين العلامات العالمية وشبكات التجزئة الإقليمية — ندير الوصول للسوق والامتثال والتوزيع من البداية للنهاية.</div>
+      <div class="stats">
+        <div class="stat"><div class="v"><span class="nums">+17</span></div><div class="l">شريك توزيع</div></div>
+        <div class="stat"><div class="v"><span class="nums">100%</span></div><div class="l">تركيز على الخليج</div></div>
+        <div class="stat"><div class="v"><span class="nums">2026</span></div><div class="l">عام التأسيس</div></div>
+      </div>
+      <span class="btn">كن شريكنا</span>
+    </div>
+  </div>
+
+  <!-- 3. Tajawal -->
+  <div class="card f-tajawal">
+    <div class="card-head">
+      <span class="font-name">Tajawal</span>
+      <span class="tag">عصري · geometric</span>
+      <span class="role">بديل Cairo أرقى وأقرب لروح Poppins</span>
+    </div>
+    <div class="specimen">
+      <div class="h1">ربط العلامات التجارية العالمية <span class="hi">بأسواق الخليج</span></div>
+      <div class="body">نوصل أبرز العلامات التجارية الاستهلاكية العالمية إلى رفوف التجزئة والصيدليات في السعودية والإمارات وقطر والكويت والبحرين وعُمان.</div>
+      <div class="h2">شريك توزيع مقره الإمارات، مصمَّم للخليج</div>
+      <div class="body">رناد للتجارة الدولية متخصصة في إدخال العلامات التجارية الاستهلاكية العالمية إلى أسواق الخليج. نحن الجسر بين العلامات العالمية وشبكات التجزئة الإقليمية — ندير الوصول للسوق والامتثال والتوزيع من البداية للنهاية.</div>
+      <div class="stats">
+        <div class="stat"><div class="v"><span class="nums">+17</span></div><div class="l">شريك توزيع</div></div>
+        <div class="stat"><div class="v"><span class="nums">100%</span></div><div class="l">تركيز على الخليج</div></div>
+        <div class="stat"><div class="v"><span class="nums">2026</span></div><div class="l">عام التأسيس</div></div>
+      </div>
+      <span class="btn">كن شريكنا</span>
+    </div>
+  </div>
+
+  <!-- 4. Cairo (current) -->
+  <div class="card f-cairo">
+    <div class="card-head">
+      <span class="font-name">Cairo</span>
+      <span class="tag">المستخدم حاليًا</span>
+      <span class="role">نضيف لكن طابعه startup/تقني</span>
+    </div>
+    <div class="specimen">
+      <div class="h1">ربط العلامات التجارية العالمية <span class="hi">بأسواق الخليج</span></div>
+      <div class="body">نوصل أبرز العلامات التجارية الاستهلاكية العالمية إلى رفوف التجزئة والصيدليات في السعودية والإمارات وقطر والكويت والبحرين وعُمان.</div>
+      <div class="h2">شريك توزيع مقره الإمارات، مصمَّم للخليج</div>
+      <div class="body">رناد للتجارة الدولية متخصصة في إدخال العلامات التجارية الاستهلاكية العالمية إلى أسواق الخليج. نحن الجسر بين العلامات العالمية وشبكات التجزئة الإقليمية — ندير الوصول للسوق والامتثال والتوزيع من البداية للنهاية.</div>
+      <div class="stats">
+        <div class="stat"><div class="v"><span class="nums">+17</span></div><div class="l">شريك توزيع</div></div>
+        <div class="stat"><div class="v"><span class="nums">100%</span></div><div class="l">تركيز على الخليج</div></div>
+        <div class="stat"><div class="v"><span class="nums">2026</span></div><div class="l">عام التأسيس</div></div>
+      </div>
+      <span class="btn">كن شريكنا</span>
+    </div>
+  </div>
+
+  <!-- 5. Noto Kufi Arabic -->
+  <div class="card f-kufi">
+    <div class="card-head">
+      <span class="font-name">Noto Kufi Arabic</span>
+      <span class="tag">رسمي · فخم</span>
+      <span class="role">قوي للعناوين، ثقيل شوية على النص الطويل</span>
+    </div>
+    <div class="specimen">
+      <div class="h1">ربط العلامات التجارية العالمية <span class="hi">بأسواق الخليج</span></div>
+      <div class="body">نوصل أبرز العلامات التجارية الاستهلاكية العالمية إلى رفوف التجزئة والصيدليات في السعودية والإمارات وقطر والكويت والبحرين وعُمان.</div>
+      <div class="h2">شريك توزيع مقره الإمارات، مصمَّم للخليج</div>
+      <div class="body">رناد للتجارة الدولية متخصصة في إدخال العلامات التجارية الاستهلاكية العالمية إلى أسواق الخليج. نحن الجسر بين العلامات العالمية وشبكات التجزئة الإقليمية — ندير الوصول للسوق والامتثال والتوزيع من البداية للنهاية.</div>
+      <div class="stats">
+        <div class="stat"><div class="v"><span class="nums">+17</span></div><div class="l">شريك توزيع</div></div>
+        <div class="stat"><div class="v"><span class="nums">100%</span></div><div class="l">تركيز على الخليج</div></div>
+        <div class="stat"><div class="v"><span class="nums">2026</span></div><div class="l">عام التأسيس</div></div>
+      </div>
+      <span class="btn">كن شريكنا</span>
+    </div>
+  </div>
+
+  <!-- 6. Almarai -->
+  <div class="card f-almarai">
+    <div class="card-head">
+      <span class="font-name">Almarai</span>
+      <span class="tag">خليجي · neutral</span>
+      <span class="role">آمن وشائع في الخليج، شخصية أقل تميزًا</span>
+    </div>
+    <div class="specimen">
+      <div class="h1">ربط العلامات التجارية العالمية <span class="hi">بأسواق الخليج</span></div>
+      <div class="body">نوصل أبرز العلامات التجارية الاستهلاكية العالمية إلى رفوف التجزئة والصيدليات في السعودية والإمارات وقطر والكويت والبحرين وعُمان.</div>
+      <div class="h2">شريك توزيع مقره الإمارات، مصمَّم للخليج</div>
+      <div class="body">رناد للتجارة الدولية متخصصة في إدخال العلامات التجارية الاستهلاكية العالمية إلى أسواق الخليج. نحن الجسر بين العلامات العالمية وشبكات التجزئة الإقليمية — ندير الوصول للسوق والامتثال والتوزيع من البداية للنهاية.</div>
+      <div class="stats">
+        <div class="stat"><div class="v"><span class="nums">+17</span></div><div class="l">شريك توزيع</div></div>
+        <div class="stat"><div class="v"><span class="nums">100%</span></div><div class="l">تركيز على الخليج</div></div>
+        <div class="stat"><div class="v"><span class="nums">2026</span></div><div class="l">عام التأسيس</div></div>
+      </div>
+      <span class="btn">كن شريكنا</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const root = document.documentElement;
+  document.querySelectorAll('input[name="scale"]').forEach(r => {
+    r.addEventListener('change', e => root.style.setProperty('--scale', e.target.value));
+  });
+</script>
+</body>
+</html>

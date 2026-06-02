@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Search, ArrowRight, BadgeCheck } from "./icons";
 import { PaperMintsMark, TungMark } from "./BrandMark";
+import { useLang } from "../[lang]/LangContext";
 
 /* ---- inline icons ---- */
 const Clock = ({ className }) => (
@@ -70,24 +71,6 @@ function Thumb({ brand, className = "" }) {
   );
 }
 
-const products = [
-  { id: "pm-strips", brand: "papermints", name: "PaperMints Strips", short: "Ultra-thin dissolving breath-freshening strips.", long: "Sugar-free strips that dissolve instantly on the tongue for discreet, on-the-go breath freshness. A pocket-sized icon of oral freshness, distributed by Renad across GCC pharmacies and modern trade.", features: ["Sugar-free", "Pocket format", "Instant freshness"] },
-  { id: "pm-drops", brand: "papermints", name: "PaperMints Drops", short: "Long-lasting breath-freshening drops.", long: "Concentrated mint drops delivering hours of fresh breath in a refillable tin — a premium everyday essential for the modern Gulf consumer.", features: ["Long-lasting", "Refillable tin", "Strong mint"] },
-  { id: "pm-spray", brand: "papermints", name: "PaperMints Spray", short: "Fast, fine breath-freshening spray.", long: "A fine-mist spray for an instant burst of freshness anywhere. Compact, travel-friendly, and registered for retail across all six GCC markets.", features: ["Fine mist", "Travel-friendly", "Instant"] },
-  { id: "pm-caps", brand: "papermints", name: "PaperMints Capsules", short: "Single-dose freshness capsules.", long: "Convenient single-dose capsules that release a clean, lasting mint — ideal for impulse pharmacy and checkout placement.", features: ["Single-dose", "Clean mint", "Impulse-ready"] },
-  { id: "tung-brush", brand: "tung", name: "TUNG Brush", short: "Specialist tongue-cleaning brush.", long: "Ergonomically designed to reach and clean the back of the tongue — the real source of bad breath. The category-defining tool in modern tongue care.", features: ["Targets odor source", "Ergonomic", "Category-defining"] },
-  { id: "tung-gel", brand: "tung", name: "TUNG Gel", short: "Tongue-cleaning gel with fresh finish.", long: "A purpose-built gel that pairs with the TUNG Brush to neutralize odor and leave a clean, fresh finish. Sold as a system for maximum effect.", features: ["Neutralizes odor", "Pairs with brush", "Fresh finish"] },
-  { id: "tung-kit", brand: "tung", name: "TUNG Fresh Kit", short: "Complete tongue-care system.", long: "The full TUNG system — brush plus gel — packaged for retail and education. The simplest way to bring tongue care to a new market.", features: ["Brush + gel", "Retail-ready", "Education pack"] },
-];
-
-const filters = [
-  { id: "all", label: "All Products" },
-  { id: "papermints", label: "PaperMints" },
-  { id: "tung", label: "TUNG" },
-  { id: "food", label: "Food & Confectionery", soon: true },
-];
-
-/* ---- modal shell ---- */
 function Overlay({ onClose, children }) {
   return (
     <div
@@ -102,6 +85,17 @@ function Overlay({ onClose, children }) {
 }
 
 export default function ProductsExplorer() {
+  const { dict } = useLang();
+  const t = dict.productsExplorer;
+  const products = t.products;
+
+  const filters = [
+    { id: "all", label: t.filters.all },
+    { id: "papermints", label: t.filters.papermints },
+    { id: "tung", label: t.filters.tung },
+    { id: "food", label: t.filters.food, soon: true },
+  ];
+
   const [active, setActive] = useState("all");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(null);
@@ -174,9 +168,9 @@ export default function ProductsExplorer() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search products…"
+              placeholder={t.searchPlaceholder}
               className="w-full bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-400"
-              aria-label="Search products"
+              aria-label={t.searchLabel}
             />
           </div>
         </div>
@@ -199,7 +193,7 @@ export default function ProductsExplorer() {
                 {f.label}
                 {f.soon && (
                   <span className="rounded-full bg-cta/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-cta">
-                    Soon
+                    {t.soon}
                   </span>
                 )}
               </button>
@@ -216,7 +210,7 @@ export default function ProductsExplorer() {
                 key={p.id}
                 type="button"
                 onClick={() => setSelected(p)}
-                className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white text-left shadow-card transition-shadow duration-300 hover:shadow-lift"
+                className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white text-start shadow-card transition-shadow duration-300 hover:shadow-lift"
               >
                 <Thumb brand={p.brand} className="h-44" />
                 <div className="flex flex-1 flex-col p-5">
@@ -233,8 +227,8 @@ export default function ProductsExplorer() {
                     {p.short}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary-dark">
-                    View details
-                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    {t.viewDetails}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0" />
                   </span>
                 </div>
               </button>
@@ -244,7 +238,7 @@ export default function ProductsExplorer() {
 
         {visible.length === 0 && (
           <p className="mt-16 text-center text-slate-400">
-            No products match your search.
+            {t.noResults}
           </p>
         )}
       </div>
@@ -257,7 +251,7 @@ export default function ProductsExplorer() {
               type="button"
               onClick={() => setSelected(null)}
               aria-label="Close"
-              className="absolute right-4 top-4 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-500 shadow-sm transition-colors hover:bg-slate-100"
+              className="absolute end-4 top-4 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-500 shadow-sm transition-colors hover:bg-slate-100"
             >
               <Close className="h-5 w-5" />
             </button>
@@ -293,8 +287,8 @@ export default function ProductsExplorer() {
                           href="/contact"
                           className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark"
                         >
-                          Inquire about this product
-                          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                          {t.inquire}
+                          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0" />
                         </a>
                         <button
                           type="button"
@@ -302,7 +296,7 @@ export default function ProductsExplorer() {
                           className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors duration-200 hover:border-primary hover:text-primary"
                         >
                           <Share className="h-4 w-4" />
-                          {copied ? "Link copied!" : "Share"}
+                          {copied ? t.linkCopied : t.share}
                         </button>
                       </div>
                     </>
@@ -330,7 +324,7 @@ export default function ProductsExplorer() {
                 setNotified(false);
               }}
               aria-label="Close"
-              className="absolute right-4 top-4 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors hover:bg-slate-200"
+              className="absolute end-4 top-4 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors hover:bg-slate-200"
             >
               <Close className="h-5 w-5" />
             </button>
@@ -339,19 +333,17 @@ export default function ProductsExplorer() {
               <Clock className="h-8 w-8" />
             </span>
             <h3 className="mt-5 font-display text-xl font-bold text-slate-900">
-              Food &amp; Confectionery
+              {t.comingSoonTitle}
             </h3>
 
             {notified ? (
               <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-slate-500">
-                You&apos;re on the list! We&apos;ll email you the moment this
-                category launches.
+                {t.comingSoonNotified}
               </p>
             ) : (
               <>
                 <p className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-slate-500">
-                  We&apos;re working on launching this category soon. Sign up to
-                  be the first to know when products launch.
+                  {t.comingSoonText}
                 </p>
                 <form
                   onSubmit={(e) => {
@@ -363,7 +355,7 @@ export default function ProductsExplorer() {
                   <input
                     type="email"
                     required
-                    placeholder="Enter your email"
+                    placeholder={t.emailPlaceholder}
                     aria-label="Email"
                     className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition-shadow placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/30"
                   />
@@ -372,7 +364,7 @@ export default function ProductsExplorer() {
                     className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark"
                   >
                     <Bell className="h-4 w-4" />
-                    Notify me at launch
+                    {t.notifyMe}
                   </button>
                 </form>
               </>

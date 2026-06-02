@@ -3,7 +3,7 @@ import Image from "next/image";
 const HERO_IMG =
   "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1920&q=80";
 
-export default function PageHeader({ eyebrow, title, subtitle, crumb }) {
+export default function PageHeader({ eyebrow, title, subtitle, crumb, dict }) {
   return (
     <section className="relative overflow-hidden bg-primary-dark">
       <Image src={HERO_IMG} alt="" fill priority sizes="100vw" className="object-cover opacity-25" />
@@ -23,8 +23,8 @@ export default function PageHeader({ eyebrow, title, subtitle, crumb }) {
           </p>
         )}
         <nav className="mt-8 flex items-center justify-center gap-2 text-sm text-white/60">
-          <a href="/" className="transition-colors hover:text-white">
-            Home
+          <a href={dict ? (dict.pageHeader.home === "الرئيسية" ? "/ar" : "/en") : "/"} className="transition-colors hover:text-white">
+            {dict ? dict.pageHeader.home : "Home"}
           </a>
           <span>/</span>
           <span className="text-white">{crumb}</span>

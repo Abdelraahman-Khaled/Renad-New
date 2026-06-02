@@ -9,30 +9,15 @@ import {
   Mail,
 } from "./icons";
 
-const menu = [
-  { label: "Company", href: "#about" },
-  { label: "Our Brands", href: "#brands" },
-  { label: "Distribution", href: "#how-we-work" },
-  { label: "Why Renad", href: "#why" },
-  { label: "Partner with Us", href: "#contact" },
-];
-
-const markets = [
-  "Saudi Arabia",
-  "United Arab Emirates",
-  "Qatar",
-  "Kuwait",
-  "Bahrain",
-  "Oman",
-];
-
 const socials = [
   { Icon: Linkedin, label: "LinkedIn" },
   { Icon: XTwitter, label: "X" },
   { Icon: Instagram, label: "Instagram" },
 ];
 
-export default function Footer() {
+export default function Footer({ dict }) {
+  const t = dict.footer;
+
   return (
     <footer id="footer" className="relative overflow-hidden bg-primary-dark text-white/80">
       <Image
@@ -52,9 +37,7 @@ export default function Footer() {
               <Logo />
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/70">
-              Renad International Trading FZCO — a UAE-based distribution partner
-              connecting global consumer brands with retail networks across the
-              GCC.
+              {t.description}
             </p>
             <div className="mt-6 flex gap-3">
               {socials.map(({ Icon, label }) => (
@@ -72,9 +55,9 @@ export default function Footer() {
 
           {/* Menu */}
           <div>
-            <h3 className="font-display text-lg font-semibold text-white">Menu</h3>
+            <h3 className="font-display text-lg font-semibold text-white">{t.menuTitle}</h3>
             <ul className="mt-5 space-y-3">
-              {menu.map((m) => (
+              {t.menuItems.map((m) => (
                 <li key={m.label}>
                   <a
                     href={m.href}
@@ -89,9 +72,9 @@ export default function Footer() {
 
           {/* Markets */}
           <div>
-            <h3 className="font-display text-lg font-semibold text-white">Markets</h3>
+            <h3 className="font-display text-lg font-semibold text-white">{t.marketsTitle}</h3>
             <ul className="mt-5 space-y-3">
-              {markets.map((m) => (
+              {t.markets.map((m) => (
                 <li key={m} className="flex items-center gap-2 text-sm text-white/70">
                   <MapPin className="h-4 w-4 shrink-0 text-cta" />
                   {m}
@@ -103,12 +86,12 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="font-display text-lg font-semibold text-white">
-              Get in Touch
+              {t.contactTitle}
             </h3>
             <ul className="mt-5 space-y-4 text-sm">
               <li className="flex gap-3 text-white/70">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
-                <span>Dubai Silicon Oasis, Dubai, United Arab Emirates</span>
+                <span>{t.address}</span>
               </li>
               <li>
                 <a
@@ -133,13 +116,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-6 text-sm text-white/60 sm:flex-row">
-          <p>© 2026 Renad International Trading FZCO. All rights reserved.</p>
+          <p>{t.copyright}</p>
           <div className="flex gap-6">
             <a href="#" className="transition-colors duration-200 hover:text-cta">
-              Privacy Policy
+              {t.privacy}
             </a>
             <a href="#" className="transition-colors duration-200 hover:text-cta">
-              Terms of Service
+              {t.terms}
             </a>
           </div>
         </div>

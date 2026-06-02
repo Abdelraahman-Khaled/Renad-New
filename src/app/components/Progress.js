@@ -1,11 +1,5 @@
 import Image from "next/image";
-
-const stats = [
-  { value: "17+", label: "Distribution Partners" },
-  { value: "5+", label: "KSA Regions" },
-  { value: "2", label: "Brand Families", highlight: true },
-  { value: "100%", label: "GCC Focused" },
-];
+import SideDecor from "./Decor";
 
 const collage = [
   {
@@ -25,20 +19,27 @@ const collage = [
   },
 ];
 
-function CircleBadge() {
+function CircleBadge({ text }) {
+  const isAr = /[\u0600-\u06FF]/.test(text);
   return (
     <div className="absolute left-1/2 top-1/2 z-10 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary shadow-lift ring-8 ring-white">
       <svg
         viewBox="0 0 100 100"
         className="absolute inset-0 h-full w-full animate-[spin_16s_linear_infinite]"
         aria-hidden
+        style={{ direction: "ltr" }}
       >
         <defs>
           <path id="badge-arc" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" />
         </defs>
-        <text fill="#ffffff" fontSize="8.5" fontWeight="600" letterSpacing="1.6">
-          <textPath href="#badge-arc">
-            RENAD • INTERNATIONAL TRADING • GCC •
+        <text 
+          fill="#ffffff" 
+          fontSize={isAr ? "10" : "8.5"} 
+          fontWeight="600" 
+          letterSpacing={isAr ? "0" : "1.6"}
+        >
+          <textPath href="#badge-arc" startOffset="50%" textAnchor="middle">
+            {text}
           </textPath>
         </text>
       </svg>
@@ -51,54 +52,56 @@ function CircleBadge() {
   );
 }
 
-export default function Progress() {
+export default function Progress({ dict }) {
+  const t = dict.progress;
+
   return (
-    <section id="about" className="bg-white">
-      <div className="mx-auto grid max-w-7xl items-start gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-16 lg:px-10">
+    <section id="about" className="relative overflow-hidden bg-white">
+      <SideDecor variant="b" />
+      <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-16 lg:px-10">
         {/* Left: heading + stat cards */}
         <div>
           <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cta">
-            About Us
+            {t.eyebrow}
           </span>
           <h2 className="mt-4 font-display text-4xl font-bold leading-[1.1] text-slate-900 sm:text-5xl">
-            A UAE-based distribution partner, built for the GCC
+            {t.heading}
           </h2>
 
           <div className="mt-10 grid max-w-lg grid-cols-2 gap-4 sm:gap-5">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className={`rounded-2xl p-6 sm:p-7 ${
-                  s.highlight ? "bg-primary text-white shadow-lift" : "bg-surface"
-                }`}
-              >
-                <p
-                  className={`font-display text-4xl font-bold sm:text-5xl ${
-                    s.highlight ? "text-white" : "text-slate-900"
+            {t.stats.map((s, i) => {
+              const highlight = i === 2;
+              return (
+                <div
+                  key={s.label}
+                  className={`rounded-2xl p-6 sm:p-7 ${
+                    highlight ? "bg-primary text-white shadow-lift" : "bg-surface"
                   }`}
                 >
-                  {s.value}
-                </p>
-                <p
-                  className={`mt-2 text-sm font-medium ${
-                    s.highlight ? "text-white/80" : "text-slate-500"
-                  }`}
-                >
-                  {s.label}
-                </p>
-              </div>
-            ))}
+                  <p
+                    className={`font-display text-4xl font-bold sm:text-5xl ${
+                      highlight ? "text-white" : "text-slate-900"
+                    }`}
+                  >
+                    {s.value}
+                  </p>
+                  <p
+                    className={`mt-2 text-sm font-medium ${
+                      highlight ? "text-white/80" : "text-slate-500"
+                    }`}
+                  >
+                    {s.label}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
         {/* Right: description + image collage */}
         <div className="flex flex-col gap-8">
-          <p className="max-w-md text-base leading-relaxed text-slate-500 lg:ml-auto lg:text-right">
-            Renad International Trading specializes in bringing international
-            consumer brands into the Gulf. We are the bridge between global
-            brands and regional retail networks across Saudi Arabia, the UAE,
-            Qatar, Kuwait, Bahrain, and Oman — managing market access,
-            compliance, and distribution end to end.
+          <p className="max-w-md text-base leading-relaxed text-slate-500 lg:ms-auto lg:text-end">
+            {t.description}
           </p>
 
           <div className="relative">
@@ -118,7 +121,7 @@ export default function Progress() {
                 </div>
               ))}
             </div>
-            <CircleBadge />
+            <CircleBadge text={t.badgeText} />
           </div>
         </div>
       </div>

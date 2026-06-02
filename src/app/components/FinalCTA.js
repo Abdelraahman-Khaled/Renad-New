@@ -1,6 +1,8 @@
 import { ArrowRight } from "./icons";
 
-export default function FinalCTA() {
+export default function FinalCTA({ dict }) {
+  const t = dict.finalCTA;
+
   return (
     <section id="contact" className="bg-white">
       <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
@@ -21,29 +23,27 @@ export default function FinalCTA() {
 
           <div className="relative mx-auto max-w-2xl">
             <span className="inline-flex rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
-              Let&apos;s Talk
+              {t.eyebrow}
             </span>
             <h2 className="mt-6 font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-              Ready to expand across GCC markets?
+              {t.heading}
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-white/80">
-              Bring your brand to Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain,
-              and Oman — with one partner accountable for every step from import
-              to shelf.
+              {t.text}
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="mailto:partners@renadtrading.com"
                 className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-cta px-8 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cta-dark"
               >
-                Partner with Renad
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                {t.cta}
+                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
               </a>
               <a
                 href="#brands"
                 className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/30 px-8 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/10"
               >
-                Explore our brands
+                {t.secondary}
               </a>
             </div>
           </div>

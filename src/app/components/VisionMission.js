@@ -1,32 +1,15 @@
 function Eye({ className }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={className}
-    >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
       <path d="M2.5 12S5.5 5.5 12 5.5 21.5 12 21.5 12 18.5 18.5 12 18.5 2.5 12 2.5 12Z" />
       <circle cx="12" cy="12" r="3" />
     </svg>
   );
 }
+
 function Target({ className }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.75}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={className}
-    >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
       <circle cx="12" cy="12" r="9" />
       <circle cx="12" cy="12" r="5" />
       <circle cx="12" cy="12" r="1.5" />
@@ -34,7 +17,9 @@ function Target({ className }) {
   );
 }
 
-export default function VisionMission() {
+export default function VisionMission({ dict }) {
+  const t = dict.visionMission;
+
   return (
     <section className="relative overflow-hidden bg-primary-dark mb-20">
       {/* ambient accents */}
@@ -44,8 +29,7 @@ export default function VisionMission() {
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
             backgroundSize: "26px 26px",
           }}
         />
@@ -54,11 +38,10 @@ export default function VisionMission() {
       <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.22em] text-cta">
-            Vision &amp; Mission
+            {t.eyebrow}
           </span>
           <p className="mt-6 font-display text-2xl font-semibold leading-snug text-white sm:text-3xl lg:text-4xl">
-            To be the most trusted bridge between international consumer brands
-            and the people of the Gulf.
+            {t.tagline}
           </p>
         </div>
 
@@ -68,12 +51,10 @@ export default function VisionMission() {
               <Eye className="h-6 w-6" />
             </span>
             <h3 className="mt-5 font-display text-xl font-bold text-white">
-              Our Vision
+              {t.visionTitle}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-white/70">
-              A Gulf market where the world&apos;s best consumer brands are
-              within every shopper&apos;s reach — introduced, trusted, and made
-              local by Renad.
+              {t.visionText}
             </p>
           </div>
 
@@ -82,12 +63,10 @@ export default function VisionMission() {
               <Target className="h-6 w-6" />
             </span>
             <h3 className="mt-5 font-display text-xl font-bold text-white">
-              Our Mission
+              {t.missionTitle}
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-white/70">
-              To give international brands a single, dependable partner for GCC
-              growth — handling market access, compliance, and distribution with
-              executive discipline.
+              {t.missionText}
             </p>
           </div>
         </div>

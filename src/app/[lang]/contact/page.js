@@ -1,44 +1,23 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import PageHeader from "../components/PageHeader";
-import ContactForm from "../components/ContactForm";
-import { MapPin, Mail, Phone, Linkedin, XTwitter, Instagram } from "../components/icons";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import PageHeader from "../../components/PageHeader";
+import ContactForm from "../../components/ContactForm";
+import { MapPin, Mail, Phone, Linkedin, XTwitter, Instagram } from "../../components/icons";
+import { getDictionary, hasLocale } from "../dictionaries";
+import { notFound } from "next/navigation";
 
-export const metadata = {
-  title: "Contact Us — Renad International Trading",
-  description:
-    "Get in touch with Renad International Trading to bring your consumer brand to retail and pharmacy networks across the GCC.",
-};
+export async function generateMetadata({ params }) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  return {
+    title: dict.contactPage.title,
+    description: dict.contactPage.description,
+  };
+}
 
-const details = [
-  {
-    Icon: MapPin,
-    label: "Office",
-    value: "Dubai Silicon Oasis, Dubai, United Arab Emirates",
-    href: null,
-  },
-  {
-    Icon: Mail,
-    label: "Email",
-    value: "partners@renadtrading.com",
-    href: "mailto:partners@renadtrading.com",
-  },
-  {
-    Icon: Phone,
-    label: "Phone",
-    value: "+971 4 000 0000",
-    href: "tel:+97140000000",
-  },
-];
-
-const markets = [
-  "Saudi Arabia",
-  "United Arab Emirates",
-  "Qatar",
-  "Kuwait",
-  "Bahrain",
-  "Oman",
-];
+const detailIcons = [MapPin, Mail, Phone];
+const detailHrefs = [null, "mailto:partners@renadtrading.com", "tel:+97140000000"];
 
 const socials = [
   { Icon: Linkedin, label: "LinkedIn" },
@@ -46,16 +25,23 @@ const socials = [
   { Icon: Instagram, label: "Instagram" },
 ];
 
-export default function ContactPage() {
+export default async function ContactPage({ params }) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const dict = await getDictionary(lang);
+  const t = dict.contactPage;
+  const markets = dict.footer.markets;
+
   return (
     <div className="relative">
       <Navbar />
       <main>
         <PageHeader
-          eyebrow="Contact Us"
-          title="Let's bring your brand to the Gulf"
-          subtitle="Tell us about your brand and the markets you're targeting — our team will map the route to retail."
-          crumb="Contact"
+          eyebrow={t.eyebrow}
+          title={t.heading}
+          subtitle={t.subtitle}
+          crumb={t.breadcrumb}
+          dict={dict}
         />
 
         <section className="bg-white">
@@ -63,11 +49,10 @@ export default function ContactPage() {
             {/* Form */}
             <div>
               <h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
-                Send us a message
+                {t.formHeading}
               </h2>
               <p className="mt-3 text-base leading-relaxed text-slate-500">
-                Fill in the form and we&apos;ll get back to you within two
-                business days.
+                {t.formSubtext}
               </p>
               <div className="mt-8">
                 <ContactForm />
@@ -78,38 +63,42 @@ export default function ContactPage() {
             <div className="flex flex-col gap-6">
               <div className="rounded-3xl border border-slate-100 bg-surface p-8 shadow-card">
                 <h3 className="font-display text-lg font-bold text-slate-900">
-                  Get in touch
+                  {t.detailsHeading}
                 </h3>
                 <ul className="mt-6 space-y-5">
-                  {details.map(({ Icon, label, value, href }) => (
-                    <li key={label} className="flex items-start gap-4">
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      <span>
-                        <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                          {label}
+                  {t.details.map((detail, i) => {
+                    const Icon = detailIcons[i];
+                    const href = detailHrefs[i];
+                    return (
+                      <li key={detail.label} className="flex items-start gap-4">
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
+                          <Icon className="h-5 w-5" />
                         </span>
-                        {href ? (
-                          <a
-                            href={href}
-                            className="font-display text-base font-semibold text-slate-800 transition-colors hover:text-primary"
-                          >
-                            {value}
-                          </a>
-                        ) : (
-                          <span className="font-display text-base font-semibold text-slate-800">
-                            {value}
+                        <span>
+                          <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
+                            {detail.label}
                           </span>
-                        )}
-                      </span>
-                    </li>
-                  ))}
+                          {href ? (
+                            <a
+                              href={href}
+                              className="font-display text-base font-semibold text-slate-800 transition-colors hover:text-primary"
+                            >
+                              {detail.value}
+                            </a>
+                          ) : (
+                            <span className="font-display text-base font-semibold text-slate-800">
+                              {detail.value}
+                            </span>
+                          )}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <div className="mt-7 border-t border-slate-200 pt-6">
                   <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    Follow us
+                    {t.followUs}
                   </span>
                   <div className="mt-3 flex gap-3">
                     {socials.map(({ Icon, label }) => (
@@ -129,7 +118,7 @@ export default function ContactPage() {
               {/* Markets */}
               <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-card">
                 <h3 className="font-display text-lg font-bold text-slate-900">
-                  Markets we serve
+                  {t.marketsTitle}
                 </h3>
                 <div className="mt-4 flex flex-wrap gap-2.5">
                   {markets.map((m) => (
@@ -146,7 +135,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer dict={dict} />
     </div>
   );
 }

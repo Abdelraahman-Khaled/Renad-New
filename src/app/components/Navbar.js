@@ -2,19 +2,22 @@
 
 import { useState, useEffect } from "react";
 import Logo from "./Logo";
+import LangSwitcher from "./LangSwitcher";
 import { Menu, Search, Linkedin, XTwitter, Instagram } from "./icons";
-
-const links = [
-  { label: "About Us", href: "/about" },
-  { label: "Products & Brands", href: "/products" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact Us", href: "/contact" },
-];
+import { useLang } from "../[lang]/LangContext";
 
 const socials = [Linkedin, XTwitter, Instagram];
 
 export default function Navbar() {
+  const { lang, dict } = useLang();
   const [scrolled, setScrolled] = useState(false);
+
+  const links = [
+    { label: dict.nav.aboutUs, href: `/${lang}/about` },
+    { label: dict.nav.productsBrands, href: `/${lang}/products` },
+    { label: dict.nav.blog, href: `/${lang}/blog` },
+    { label: dict.nav.contactUs, href: `/${lang}/contact` },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -56,6 +59,8 @@ export default function Navbar() {
 
         {/* Right cluster */}
         <div className="flex items-center gap-2">
+          <LangSwitcher light={light} />
+
           <div className="hidden items-center gap-1 xl:flex">
             {socials.map((Icon, i) => (
               <a
@@ -74,14 +79,14 @@ export default function Navbar() {
           </div>
 
           <a
-            href="/contact"
-            className={`group hidden items-center gap-2 rounded-full py-1.5 pl-5 pr-1.5 text-sm font-semibold transition-colors duration-200 sm:inline-flex ${
+            href={`/${lang}/contact`}
+            className={`group hidden items-center gap-2 rounded-full py-1.5 ps-5 pe-1.5 text-sm font-semibold transition-colors duration-200 sm:inline-flex ${
               light
                 ? "bg-white text-primary-dark hover:bg-cyan-50"
                 : "bg-primary text-white hover:bg-primary-dark"
             }`}
           >
-            Partner with Us
+            {dict.nav.partnerWithUs}
             <span
               className={`flex h-7 w-7 items-center justify-center rounded-full ${
                 light ? "bg-primary text-white" : "bg-white text-primary"
@@ -94,7 +99,7 @@ export default function Navbar() {
                 strokeWidth="2.2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="h-3.5 w-3.5"
+                className="h-3.5 w-3.5 rtl:-scale-x-100"
                 aria-hidden
               >
                 <path d="M7 7h10v10M7 17 17 7" />

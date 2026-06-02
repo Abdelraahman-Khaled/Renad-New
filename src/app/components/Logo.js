@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { useLang } from "../[lang]/LangContext";
 
 export default function Logo({ className = "", ...props }) {
+  const { lang } = useLang();
   return (
-    <a href="/" className={`flex items-center ${className}`}>
+    <a href={`/${lang}`} className={`flex items-center ${className}`}>
       <Image
         src="/logo.webp"
         alt="Renad International Trading"
@@ -14,3 +18,4 @@ export default function Logo({ className = "", ...props }) {
     </a>
   );
 }
+

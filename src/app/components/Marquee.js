@@ -1,20 +1,3 @@
-const row1 = [
-  "Saudi Arabia",
-  "United Arab Emirates",
-  "Qatar",
-  "Kuwait",
-  "Bahrain",
-  "Oman",
-];
-const row2 = [
-  "PaperMints",
-  "TUNG",
-  "Distribution",
-  "Brand Growth",
-  "Market Access",
-  "GCC",
-];
-
 function MarqueeRow({ items, reverse = false, duration = 24 }) {
   const all = [...items, ...items, ...items];
   return (
@@ -41,7 +24,9 @@ function MarqueeRow({ items, reverse = false, duration = 24 }) {
   );
 }
 
-export default function Marquee() {
+export default function Marquee({ dict }) {
+  const t = dict.marquee;
+
   return (
     <>
       <style>{`
@@ -57,11 +42,11 @@ export default function Marquee() {
         <div className="relative h-[180px] w-full sm:h-[210px]">
           {/* Teal ribbon — leans up */}
           <div className="absolute left-1/2 top-1/2 w-[130%] -translate-x-1/2 -translate-y-1/2 rotate-[5deg] bg-primary py-3 shadow-lift">
-            <MarqueeRow items={row1} duration={26} />
+            <MarqueeRow items={t.row1} duration={26} />
           </div>
           {/* Red ribbon — leans down, crosses on top */}
           <div className="absolute left-1/2 top-1/2 w-[130%] -translate-x-1/2 -translate-y-1/2 -rotate-[5deg] bg-cta py-3 shadow-lift">
-            <MarqueeRow items={row2} reverse duration={22} />
+            <MarqueeRow items={t.row2} reverse duration={22} />
           </div>
         </div>
       </div>

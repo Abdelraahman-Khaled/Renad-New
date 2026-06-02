@@ -1,0 +1,375 @@
+{
+  "metadata": {
+    "title": "Renad International Trading — Connecting Global Brands with GCC Markets",
+    "description": "Renad International Trading FZCO is a UAE-based distribution partner bringing the world's leading consumer brands to retail networks across Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman."
+  },
+  "nav": {
+    "aboutUs": "About Us",
+    "productsBrands": "Products & Brands",
+    "blog": "Blog",
+    "contactUs": "Contact Us",
+    "partnerWithUs": "Partner with Us"
+  },
+  "hero": {
+    "slides": [
+      {
+        "tag": "International Distribution · GCC",
+        "pre": "Connecting Global Brands",
+        "hi": "with GCC Markets",
+        "text": "We bring the world's leading consumer brands to retail and pharmacy shelves across Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman."
+      },
+      {
+        "tag": "Brand Spotlight · Breath Care",
+        "pre": "PaperMints —",
+        "hi": "Fresh Breath, Gulf-wide",
+        "text": "Sugar-free breath-freshening strips, distributed by Renad into pharmacies and modern trade across all six GCC markets."
+      },
+      {
+        "tag": "Brand Spotlight · Tongue Care",
+        "pre": "TUNG — Specialist",
+        "hi": "Tongue Care for the Region",
+        "text": "Dedicated tongue-cleaning brushes and gel, building a fast-growing oral-care category across the Gulf with Renad."
+      }
+    ],
+    "ourBrands": "Our Brands",
+    "goToSlide": "Go to slide"
+  },
+  "progress": {
+    "eyebrow": "About Us",
+    "heading": "A UAE-based distribution partner, built for the GCC",
+    "description": "Renad International Trading specializes in bringing international consumer brands into the Gulf. We are the bridge between global brands and regional retail networks across Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — managing market access, compliance, and distribution end to end.",
+    "badgeText": "RENAD • INTERNATIONAL TRADING • GCC •",
+    "stats": [
+      { "value": "17+", "label": "Distribution Partners" },
+      { "value": "5+", "label": "KSA Regions" },
+      { "value": "2", "label": "Brand Families" },
+      { "value": "100%", "label": "GCC Focused" }
+    ]
+  },
+  "pillars": {
+    "eyebrow": "Why Renad",
+    "heading": "Built to grow your brand across the GCC",
+    "subheading": "From market entry to the shelf, Renad combines regional relationships, regulatory know-how, and disciplined distribution into one accountable partner.",
+    "items": [
+      {
+        "label": "Market Access",
+        "desc": "Instant reach into established GCC retail and pharmacy networks — no groundwork required."
+      },
+      {
+        "label": "Brand Growth",
+        "desc": "Localized positioning and in-market activation that turn shelf space into sell-through."
+      },
+      {
+        "label": "Regulatory Compliance",
+        "desc": "Registration, labeling, and import compliance for every market — handled for you."
+      },
+      {
+        "label": "Distribution Excellence",
+        "desc": "A unified, reliable supply chain engineered to move your brand from import to shelf."
+      }
+    ]
+  },
+  "productCategories": {
+    "eyebrow": "Product Categories",
+    "headingPrefix": "An",
+    "headingHighlight": "Evolving Portfolio",
+    "headingSuffix": "of Everyday Essentials",
+    "brands": "Brands",
+    "comingSoon": "Coming Soon",
+    "categories": [
+      {
+        "num": "01",
+        "title": "Oral & Dental Care",
+        "desc": "Breath freshening strips, capsules, sprays, and specialized tongue care — redefining daily oral hygiene with globally recognized brands."
+      },
+      {
+        "num": "02",
+        "title": "Snacks & Confectionery",
+        "desc": "An emerging category in development — bringing premium and enjoyable snacking experiences to GCC markets."
+      },
+      {
+        "num": "03",
+        "title": "Medical Products",
+        "desc": "Expanding into adjacent health and medical categories — full details coming soon."
+      }
+    ]
+  },
+  "marquee": {
+    "row1": ["Saudi Arabia", "United Arab Emirates", "Qatar", "Kuwait", "Bahrain", "Oman"],
+    "row2": ["PaperMints", "TUNG", "Distribution", "Brand Growth", "Market Access", "GCC"]
+  },
+  "howWeWork": {
+    "eyebrow": "The Partner Journey",
+    "heading": "From global brand to GCC consumer",
+    "subheading": "One accountable path from a brand's factory to the consumer's hand — managed end to end by Renad.",
+    "steps": [
+      { "num": "01", "title": "Global Brand", "desc": "We partner with international brands and onboard their portfolio." },
+      { "num": "02", "title": "Import & Compliance", "desc": "Registration, labeling, and customs handled for every market." },
+      { "num": "03", "title": "Warehousing", "desc": "Goods stored and managed in compliant regional facilities." },
+      { "num": "04", "title": "Distribution", "desc": "Reliable fulfilment to retail and pharmacy networks at speed." },
+      { "num": "05", "title": "Retail & Consumer", "desc": "Brands reach the shelf — and the shopper — across the GCC." }
+    ]
+  },
+  "visionMission": {
+    "eyebrow": "Vision & Mission",
+    "tagline": "To be the most trusted bridge between international consumer brands and the people of the Gulf.",
+    "visionTitle": "Our Vision",
+    "visionText": "A Gulf market where the world's best consumer brands are within every shopper's reach — introduced, trusted, and made local by Renad.",
+    "missionTitle": "Our Mission",
+    "missionText": "To give international brands a single, dependable partner for GCC growth — handling market access, compliance, and distribution with executive discipline."
+  },
+  "latestNews": {
+    "eyebrow": "Newsroom",
+    "heading": "Latest News",
+    "subheading": "Insights from across regional distribution and consumer-brand growth in the GCC.",
+    "viewAll": "View all articles",
+    "readMore": "Read more",
+    "posts": [
+      {
+        "tag": "Market Entry",
+        "title": "How International Brands Win Shelf Space in GCC Pharmacy Chains",
+        "excerpt": "From registration to retail negotiation — the playbook for landing a global brand on Gulf shelves, and the pitfalls that slow new entrants down.",
+        "date": "May 28, 2026",
+        "read": "5 min read"
+      },
+      {
+        "tag": "Oral Care",
+        "title": "The Growing Demand for Premium Mouth Care Across the Gulf",
+        "date": "May 14, 2026",
+        "read": "4 min read"
+      },
+      {
+        "tag": "Distribution",
+        "title": "Building a Compliant, Reliable Route to Retail in Six Markets",
+        "date": "Apr 30, 2026",
+        "read": "6 min read"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "heading": "Trusted by global brands & GCC retailers",
+    "prevLabel": "Previous testimonial",
+    "nextLabel": "Next testimonial",
+    "goToLabel": "Go to testimonial",
+    "items": [
+      {
+        "quote": "Renad gave our brand a real route into the Gulf. Within months we moved from zero presence to consistent shelf space across multiple markets.",
+        "name": "Brand Partner",
+        "role": "Global FMCG Manufacturer"
+      },
+      {
+        "quote": "They understand both the regulatory maze and the retail relationships. Rare to find one partner who handles compliance and distribution this well.",
+        "name": "Procurement Lead",
+        "role": "GCC Pharmacy Chain"
+      },
+      {
+        "quote": "Professional, executive, and genuinely regional. Renad operates like a partner invested in our long-term growth — not just another distributor.",
+        "name": "Category Director",
+        "role": "Consumer Health Brand"
+      },
+      {
+        "quote": "Their regional reach meant our launch covered all six markets at once — scale that would have taken us years to build alone.",
+        "name": "Export Manager",
+        "role": "European Personal-Care Brand"
+      },
+      {
+        "quote": "Clear reporting, on-time delivery, and a team that knows every buyer. Exactly the partner a growing brand needs in the Gulf.",
+        "name": "Managing Director",
+        "role": "Regional Distribution Partner"
+      }
+    ]
+  },
+  "partners": {
+    "badge": "Trusted Partners",
+    "heading": "Trusted by Leading Retailers & Pharmacies",
+    "searchPlaceholder": "Search partners...",
+    "categories": {
+      "all": "All Partners",
+      "pharmacy": "Pharmacies",
+      "retail": "Beauty & Retail",
+      "convenience": "Convenience & Gas"
+    },
+    "categoryLabels": {
+      "convenience": "Gas & Shop",
+      "pharmacy": "Pharmacy",
+      "retail": "Retail"
+    },
+    "noResults": "No partners found",
+    "noResultsHint": "Try adjusting your filters or search query."
+  },
+  "finalCTA": {
+    "eyebrow": "Let's Talk",
+    "heading": "Ready to expand across GCC markets?",
+    "text": "Bring your brand to Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — with one partner accountable for every step from import to shelf.",
+    "cta": "Partner with Renad",
+    "secondary": "Explore our brands"
+  },
+  "footer": {
+    "description": "Renad International Trading FZCO — a UAE-based distribution partner connecting global consumer brands with retail networks across the GCC.",
+    "menuTitle": "Menu",
+    "menuItems": [
+      { "label": "Company", "href": "#about" },
+      { "label": "Our Brands", "href": "#brands" },
+      { "label": "Distribution", "href": "#how-we-work" },
+      { "label": "Why Renad", "href": "#why" },
+      { "label": "Partner with Us", "href": "#contact" }
+    ],
+    "marketsTitle": "Markets",
+    "markets": ["Saudi Arabia", "United Arab Emirates", "Qatar", "Kuwait", "Bahrain", "Oman"],
+    "contactTitle": "Get in Touch",
+    "address": "Dubai Silicon Oasis, Dubai, United Arab Emirates",
+    "copyright": "© 2026 Renad International Trading FZCO. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "pageHeader": {
+    "home": "Home"
+  },
+  "aboutPage": {
+    "title": "About Us — Renad International Trading",
+    "description": "Renad International Trading FZCO is a UAE-based distribution partner connecting international consumer brands with retail networks across the GCC.",
+    "eyebrow": "About Us",
+    "heading": "Connecting global brands with the Gulf",
+    "subtitle": "A UAE-based distribution partner built to bring the world's leading consumer brands to retail and pharmacy shelves across the GCC.",
+    "breadcrumb": "About",
+    "whoWeAreEyebrow": "Who We Are",
+    "whoWeAreHeading": "A distribution partner, not just a distributor",
+    "whoWeAreP1": "Renad International Trading FZCO is a UAE-based trading and distribution company specializing in bringing international consumer brands into GCC markets.",
+    "whoWeAreP2": "We act as the bridge between global brands and regional retail networks across Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman — managing market access, regulatory compliance, warehousing, and last-stage distribution end to end.",
+    "whoWeAreP3": "Our focus is everyday consumer goods, anchored in mouth care with brands like PaperMints and TUNG and expanding into new categories. Logistics is a supporting capability — our core value is connecting global brands with GCC markets.",
+    "atAGlance": "At a glance",
+    "facts": [
+      { "label": "Headquarters", "value": "Dubai, United Arab Emirates" },
+      { "label": "Markets", "value": "6 GCC countries" },
+      { "label": "Channels", "value": "Pharmacy, modern trade & retail" },
+      { "label": "Flagship brands", "value": "PaperMints & TUNG" }
+    ]
+  },
+  "contactPage": {
+    "title": "Contact Us — Renad International Trading",
+    "description": "Get in touch with Renad International Trading to bring your consumer brand to retail and pharmacy networks across the GCC.",
+    "eyebrow": "Contact Us",
+    "heading": "Let's bring your brand to the Gulf",
+    "subtitle": "Tell us about your brand and the markets you're targeting — our team will map the route to retail.",
+    "breadcrumb": "Contact",
+    "formHeading": "Send us a message",
+    "formSubtext": "Fill in the form and we'll get back to you within two business days.",
+    "detailsHeading": "Get in touch",
+    "details": [
+      { "label": "Office", "value": "Dubai Silicon Oasis, Dubai, United Arab Emirates" },
+      { "label": "Email", "value": "partners@renadtrading.com" },
+      { "label": "Phone", "value": "+971 4 000 0000" }
+    ],
+    "followUs": "Follow us",
+    "marketsTitle": "Markets we serve"
+  },
+  "contactForm": {
+    "fullName": "Full name",
+    "namePlaceholder": "Your name",
+    "company": "Company / Brand",
+    "companyPlaceholder": "Company name",
+    "email": "Email",
+    "emailPlaceholder": "you@company.com",
+    "phone": "Phone",
+    "phoneOptional": "(optional)",
+    "phonePlaceholder": "+971 …",
+    "message": "How can we help?",
+    "messagePlaceholder": "Tell us about your brand and which GCC markets you're targeting…",
+    "send": "Send message",
+    "thankYouTitle": "Thank you — message received",
+    "thankYouText": "A member of our team will get back to you shortly to discuss bringing your brand to the GCC.",
+    "sendAnother": "Send another message"
+  },
+  "blogPage": {
+    "title": "Blog — Renad International Trading",
+    "description": "Insights and updates on consumer-brand distribution, market entry, and retail growth across the GCC from Renad International Trading.",
+    "eyebrow": "Newsroom",
+    "heading": "Insights & Updates",
+    "subtitle": "Perspectives on consumer-brand distribution, market entry, and retail growth across the GCC.",
+    "breadcrumb": "Blog",
+    "readMore": "Read more",
+    "posts": [
+      {
+        "tag": "Market Entry",
+        "title": "How International Brands Win Shelf Space in GCC Pharmacy Chains",
+        "excerpt": "From registration to retail negotiation — the playbook for landing a global brand on Gulf shelves, and the pitfalls that slow new entrants down.",
+        "date": "May 28, 2026",
+        "read": "5 min read"
+      },
+      {
+        "tag": "Oral Care",
+        "title": "The Growing Demand for Premium Mouth Care Across the Gulf",
+        "excerpt": "Why breath and tongue care is one of the fastest-growing personal-care segments in the region — and what it means for brands.",
+        "date": "May 14, 2026",
+        "read": "4 min read"
+      },
+      {
+        "tag": "Distribution",
+        "title": "Building a Compliant, Reliable Route to Retail in Six Markets",
+        "excerpt": "Inside the distribution backbone that moves products from import to shelf across all six GCC countries.",
+        "date": "Apr 30, 2026",
+        "read": "6 min read"
+      },
+      {
+        "tag": "Retail",
+        "title": "Modern Trade vs. Traditional Retail: Where Brands Should Focus",
+        "excerpt": "A look at the shifting balance between modern trade and traditional channels in the Gulf consumer market.",
+        "date": "Apr 12, 2026",
+        "read": "5 min read"
+      },
+      {
+        "tag": "Regulation",
+        "title": "Navigating Product Registration and Labeling in the GCC",
+        "excerpt": "The regulatory essentials every consumer brand needs to know before entering Saudi Arabia and the wider Gulf.",
+        "date": "Mar 25, 2026",
+        "read": "7 min read"
+      },
+      {
+        "tag": "Insights",
+        "title": "Five Signals Your Brand Is Ready to Expand into the Gulf",
+        "excerpt": "Practical indicators that it's time to take your consumer brand into the GCC — and how a distribution partner accelerates it.",
+        "date": "Mar 08, 2026",
+        "read": "4 min read"
+      }
+    ]
+  },
+  "productsPage": {
+    "title": "Products — Renad International Trading",
+    "description": "Explore the brands Renad distributes across the GCC — PaperMints breath care, TUNG tongue care, and more categories coming soon.",
+    "eyebrow": "Products & Brands",
+    "heading": "Our Products",
+    "subtitle": "The consumer brands we bring to retail and pharmacy shelves across the GCC — with new categories on the way.",
+    "breadcrumb": "Products"
+  },
+  "productsExplorer": {
+    "searchPlaceholder": "Search products…",
+    "searchLabel": "Search products",
+    "viewDetails": "View details",
+    "noResults": "No products match your search.",
+    "inquire": "Inquire about this product",
+    "share": "Share",
+    "linkCopied": "Link copied!",
+    "soon": "Soon",
+    "comingSoonTitle": "Food & Confectionery",
+    "comingSoonNotified": "You're on the list! We'll email you the moment this category launches.",
+    "comingSoonText": "We're working on launching this category soon. Sign up to be the first to know when products launch.",
+    "emailPlaceholder": "Enter your email",
+    "notifyMe": "Notify me at launch",
+    "filters": {
+      "all": "All Products",
+      "papermints": "PaperMints",
+      "tung": "TUNG",
+      "food": "Food & Confectionery"
+    },
+    "products": [
+      { "id": "pm-strips", "brand": "papermints", "name": "PaperMints Strips", "short": "Ultra-thin dissolving breath-freshening strips.", "long": "Sugar-free strips that dissolve instantly on the tongue for discreet, on-the-go breath freshness. A pocket-sized icon of oral freshness, distributed by Renad across GCC pharmacies and modern trade.", "features": ["Sugar-free", "Pocket format", "Instant freshness"] },
+      { "id": "pm-drops", "brand": "papermints", "name": "PaperMints Drops", "short": "Long-lasting breath-freshening drops.", "long": "Concentrated mint drops delivering hours of fresh breath in a refillable tin — a premium everyday essential for the modern Gulf consumer.", "features": ["Long-lasting", "Refillable tin", "Strong mint"] },
+      { "id": "pm-spray", "brand": "papermints", "name": "PaperMints Spray", "short": "Fast, fine breath-freshening spray.", "long": "A fine-mist spray for an instant burst of freshness anywhere. Compact, travel-friendly, and registered for retail across all six GCC markets.", "features": ["Fine mist", "Travel-friendly", "Instant"] },
+      { "id": "pm-caps", "brand": "papermints", "name": "PaperMints Capsules", "short": "Single-dose freshness capsules.", "long": "Convenient single-dose capsules that release a clean, lasting mint — ideal for impulse pharmacy and checkout placement.", "features": ["Single-dose", "Clean mint", "Impulse-ready"] },
+      { "id": "tung-brush", "brand": "tung", "name": "TUNG Brush", "short": "Specialist tongue-cleaning brush.", "long": "Ergonomically designed to reach and clean the back of the tongue — the real source of bad breath. The category-defining tool in modern tongue care.", "features": ["Targets odor source", "Ergonomic", "Category-defining"] },
+      { "id": "tung-gel", "brand": "tung", "name": "TUNG Gel", "short": "Tongue-cleaning gel with fresh finish.", "long": "A purpose-built gel that pairs with the TUNG Brush to neutralize odor and leave a clean, fresh finish. Sold as a system for maximum effect.", "features": ["Neutralizes odor", "Pairs with brush", "Fresh finish"] },
+      { "id": "tung-kit", "brand": "tung", "name": "TUNG Fresh Kit", "short": "Complete tongue-care system.", "long": "The full TUNG system — brush plus gel — packaged for retail and education. The simplest way to bring tongue care to a new market.", "features": ["Brush + gel", "Retail-ready", "Education pack"] }
+    ]
+  }
+}
