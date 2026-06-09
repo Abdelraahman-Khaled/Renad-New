@@ -4,6 +4,7 @@
     "description": "Renad International Trading FZCO is a UAE-based distribution partner bringing the world's leading consumer brands to retail networks across Saudi Arabia, the UAE, Qatar, Kuwait, Bahrain, and Oman."
   },
   "nav": {
+    "home": "Home",
     "aboutUs": "About Us",
     "productsBrands": "Products & Brands",
     "blog": "Blog",
@@ -243,6 +244,7 @@
     "description": "Renad International Trading FZCO — a UAE-based distribution partner connecting global consumer brands with retail networks across the GCC.",
     "menuTitle": "Menu",
     "menuItems": [
+      { "label": "Home", "href": "/" },
       { "label": "About Us", "href": "/about" },
       { "label": "Products & Brands", "href": "/products" },
       { "label": "Blog", "href": "/blog" },

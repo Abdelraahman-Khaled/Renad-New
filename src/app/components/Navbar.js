@@ -13,6 +13,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
+    { label: dict.nav.home, href: `/${lang}` },
     { label: dict.nav.aboutUs, href: `/${lang}/about` },
     { label: dict.nav.productsBrands, href: `/${lang}/products` },
     { label: dict.nav.blog, href: `/${lang}/blog` },
