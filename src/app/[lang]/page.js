@@ -36,7 +36,7 @@ export default async function Home({ params }) {
         <Partners />
         <FinalCTA dict={dict} />
       </main>
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={lang} />
     </div>
   );
 }

@@ -151,7 +151,7 @@ export default async function AboutPage({ params }) {
         <FinalCTA dict={dict} />
       </main>
 
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={lang} />
     </div>
   );
 }

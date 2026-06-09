@@ -135,7 +135,7 @@ export default async function ContactPage({ params }) {
           </div>
         </section>
       </main>
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={lang} />
     </div>
   );
 }

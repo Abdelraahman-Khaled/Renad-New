@@ -15,8 +15,13 @@ const socials = [
   { Icon: Instagram, label: "Instagram" },
 ];
 
-export default function Footer({ dict }) {
+export default function Footer({ dict, lang }) {
   const t = dict.footer;
+
+  // Menu items use locale-relative paths (/about, /products, ...) — prefix
+  // them with the active locale, matching the navbar links.
+  const resolveHref = (href) =>
+    href.startsWith("/") ? `/${lang}${href}` : href;
 
   return (
     <footer id="footer" className="relative overflow-hidden bg-primary-dark text-white/80">
@@ -60,7 +65,7 @@ export default function Footer({ dict }) {
               {t.menuItems.map((m) => (
                 <li key={m.label}>
                   <a
-                    href={m.href}
+                    href={resolveHref(m.href)}
                     className="text-sm text-white/70 transition-colors duration-200 hover:text-cta"
                   >
                     {m.label}

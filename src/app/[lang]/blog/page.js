@@ -92,7 +92,7 @@ export default async function BlogPage({ params }) {
 
         <FinalCTA dict={dict} />
       </main>
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={lang} />
     </div>
   );
 }
