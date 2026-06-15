@@ -1,0 +1,14 @@
+services:
+  renad:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: renad-new:latest
+    container_name: renad-new
+    restart: unless-stopped
+    ports:
+      # host:container  ->  app reachable at http://<host>:9120
+      - "9120:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1

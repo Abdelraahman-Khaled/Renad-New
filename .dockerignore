@@ -1,0 +1,36 @@
+# Dependencies & build output (rebuilt inside the image)
+node_modules
+.next
+out
+build
+coverage
+
+# Version control & CI
+.git
+.gitignore
+
+# Env / secrets (pass these via Portainer instead)
+.env
+.env.*
+
+# Editor / OS noise
+.DS_Store
+.vscode
+.idea
+
+# Project tooling & docs not needed at runtime
+.claude
+design-system
+DESIGN.md
+AGENTS.md
+CLAUDE.md
+README.md
+tasks.md
+font-compare.html
+f8da17a7304a2f9eb6d6ca53f842de1e.jpg
+*.log
+
+# Docker files themselves
+Dockerfile
+.dockerignore
+docker-compose.yml
