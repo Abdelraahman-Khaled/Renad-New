@@ -18,8 +18,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1920&q=80";
+const HERO_IMG = "/images/about.jpeg";
 
 const factIcons = [MapPin, Globe, Store, BadgeCheck];
 
@@ -43,9 +42,9 @@ export default async function AboutPage({ params }) {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-25"
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-linear-to-b from-primary-dark/85 to-primary-dark/95" />
+          <div className="absolute inset-0 bg-linear-to-b from-primary-dark to-transparent" />
           <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-36 text-center lg:px-10 lg:pb-28 lg:pt-44">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-cta">
               {t.eyebrow}
@@ -57,7 +56,10 @@ export default async function AboutPage({ params }) {
               {t.subtitle}
             </p>
             <nav className="mt-8 flex items-center justify-center gap-2 text-sm text-white/60">
-              <a href={`/${lang}`} className="transition-colors hover:text-white">
+              <a
+                href={`/${lang}`}
+                className="transition-colors hover:text-white"
+              >
                 {dict.pageHeader.home}
               </a>
               <span>/</span>
@@ -92,7 +94,10 @@ export default async function AboutPage({ params }) {
                 {t.facts.map((fact, i) => {
                   const Icon = factIcons[i];
                   return (
-                    <li key={fact.label} className="flex items-center gap-4 py-4">
+                    <li
+                      key={fact.label}
+                      className="flex items-center gap-4 py-4"
+                    >
                       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
                         <Icon className="h-5 w-5" />
                       </span>
@@ -122,7 +127,9 @@ export default async function AboutPage({ params }) {
                   <div
                     key={s.label}
                     className={`rounded-2xl p-7 text-center ${
-                      highlight ? "bg-primary text-white shadow-lift" : "bg-white shadow-card"
+                      highlight
+                        ? "bg-primary text-white shadow-lift"
+                        : "bg-white shadow-card"
                     }`}
                   >
                     <p

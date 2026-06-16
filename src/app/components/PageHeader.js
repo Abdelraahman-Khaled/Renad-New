@@ -1,13 +1,27 @@
 import Image from "next/image";
 
-const HERO_IMG =
+const FALLBACK_IMG =
   "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1920&q=80";
 
-export default function PageHeader({ eyebrow, title, subtitle, crumb, dict }) {
+export default function PageHeader({
+  eyebrow,
+  title,
+  subtitle,
+  crumb,
+  dict,
+  image,
+}) {
   return (
     <section className="relative overflow-hidden bg-primary-dark">
-      <Image src={HERO_IMG} alt="" fill priority sizes="100vw" className="object-cover opacity-25" />
-      <div className="absolute inset-0 bg-linear-to-b from-primary-dark/85 to-primary-dark/95" />
+      <Image
+        src={image || FALLBACK_IMG}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-linear-to-b from-primary-dark to-transparent" />
       <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-36 text-center lg:px-10 lg:pb-24 lg:pt-44">
         {eyebrow && (
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-cta">
@@ -23,7 +37,12 @@ export default function PageHeader({ eyebrow, title, subtitle, crumb, dict }) {
           </p>
         )}
         <nav className="mt-8 flex items-center justify-center gap-2 text-sm text-white/60">
-          <a href={dict ? (dict.pageHeader.home === "الرئيسية" ? "/ar" : "/en") : "/"} className="transition-colors hover:text-white">
+          <a
+            href={
+              dict ? (dict.pageHeader.home === "الرئيسية" ? "/ar" : "/en") : "/"
+            }
+            className="transition-colors hover:text-white"
+          >
             {dict ? dict.pageHeader.home : "Home"}
           </a>
           <span>/</span>

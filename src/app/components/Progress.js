@@ -3,17 +3,17 @@ import SideDecor from "./Decor";
 
 const collage = [
   {
-    src: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=800&q=80",
+    src: "/images/stats3.png",
     alt: "Consumer brands stocked across modern GCC retail shelves",
     cls: "row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1576602976047-174e57a47881?auto=format&fit=crop&w=600&q=80",
+    src: "/images/stats1.png",
     alt: "Pharmacy retail aisle",
     cls: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
+    src: "/images/stats2 .png",
     alt: "Retail partner",
     cls: "",
   },
@@ -30,12 +30,15 @@ function CircleBadge({ text }) {
         style={{ direction: "ltr" }}
       >
         <defs>
-          <path id="badge-arc" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" />
+          <path
+            id="badge-arc"
+            d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"
+          />
         </defs>
-        <text 
-          fill="#ffffff" 
-          fontSize={isAr ? "10" : "8.5"} 
-          fontWeight="600" 
+        <text
+          fill="#ffffff"
+          fontSize={isAr ? "10" : "8.5"}
+          fontWeight="600"
           letterSpacing={isAr ? "0" : "1.6"}
         >
           <textPath href="#badge-arc" startOffset="50%" textAnchor="middle">
@@ -44,7 +47,16 @@ function CircleBadge({ text }) {
         </text>
       </svg>
       <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#e0241c" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#e0241c"
+          strokeWidth={2.2}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-5 w-5"
+          aria-hidden
+        >
           <path d="M7 17 17 7M8 7h9v9" />
         </svg>
       </span>
@@ -75,7 +87,9 @@ export default function Progress({ dict }) {
                 <div
                   key={s.label}
                   className={`rounded-2xl p-6 sm:p-7 ${
-                    highlight ? "bg-primary text-white shadow-lift" : "bg-surface"
+                    highlight
+                      ? "bg-primary text-white shadow-lift"
+                      : "bg-surface"
                   }`}
                 >
                   <p

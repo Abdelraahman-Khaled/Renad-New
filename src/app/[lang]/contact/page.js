@@ -42,6 +42,7 @@ export default async function ContactPage({ params }) {
           subtitle={t.subtitle}
           crumb={t.breadcrumb}
           dict={dict}
+          image="/images/contact-hero.png"
         />
 
         <section className="bg-white">

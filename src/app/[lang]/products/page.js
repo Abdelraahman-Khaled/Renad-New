@@ -32,6 +32,7 @@ export default async function ProductsPage({ params }) {
           subtitle={t.subtitle}
           crumb={t.breadcrumb}
           dict={dict}
+          image="/images/products-hero.png"
         />
         <ProductsExplorer />
         <FinalCTA dict={dict} />

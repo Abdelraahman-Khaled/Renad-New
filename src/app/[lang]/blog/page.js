@@ -42,6 +42,7 @@ export default async function BlogPage({ params }) {
           subtitle={t.subtitle}
           crumb={t.breadcrumb}
           dict={dict}
+          image="/images/blog-hero.png"
         />
 
         <section className="bg-white">

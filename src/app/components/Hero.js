@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import { useLang } from "../[lang]/LangContext";
 
 function ArrowUpRight({ className }) {
@@ -11,9 +10,6 @@ function ArrowUpRight({ className }) {
     </svg>
   );
 }
-
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1920&q=80";
 
 export default function Hero() {
   const { dict } = useLang();
@@ -41,13 +37,15 @@ export default function Hero() {
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl">
         {/* Full-bleed background */}
         <div className="relative" style={{ minHeight: "clamp(560px, 82vh, 780px)" }}>
-          <Image
-            src={HERO_IMG}
-            alt="The Gulf skyline — Renad's regional distribution stage"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
+          <video
+            src="/images/b01.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden
+            className="absolute inset-0 h-full w-full object-cover"
           />
           {/* Legibility gradients */}
           <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-black/45" />
