@@ -37,7 +37,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
-# Container listens on 3000; published as 9120 on the host (see compose).
+# Container listens on 3000; published as 9105 on the host (see compose).
 EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
