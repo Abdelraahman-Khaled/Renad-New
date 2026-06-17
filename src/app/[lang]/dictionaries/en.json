@@ -41,10 +41,22 @@
     "description": "At Renad, we bridge the gap between global innovations and GCC markets. More than just a logistics provider, we are the trusted partner connecting your brand with the region's premier retail and pharmacy networks. We manage the entire journey to the shelf—from local market insights to strategic distribution, ensuring lasting growth for every brand in our family.",
     "badgeText": "RENAD • INTERNATIONAL TRADING • GCC •",
     "stats": [
-      { "value": "17+", "label": "Distribution Partners" },
-      { "value": "5+", "label": "KSA Regions" },
-      { "value": "2", "label": "Brand Families" },
-      { "value": "100%", "label": "GCC Focused" }
+      {
+        "value": "17+",
+        "label": "Distribution Partners"
+      },
+      {
+        "value": "5+",
+        "label": "KSA Regions"
+      },
+      {
+        "value": "2",
+        "label": "Brand Families"
+      },
+      {
+        "value": "100%",
+        "label": "GCC Focused"
+      }
     ]
   },
   "pillars": {
@@ -244,11 +256,26 @@
     "description": "Renad International Trading FZCO — a UAE-based distribution partner connecting global consumer brands with retail networks across the GCC.",
     "menuTitle": "Menu",
     "menuItems": [
-      { "label": "Home", "href": "/" },
-      { "label": "About Us", "href": "/about" },
-      { "label": "Products & Brands", "href": "/products" },
-      { "label": "Blog", "href": "/blog" },
-      { "label": "Contact Us", "href": "/contact" }
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "About Us",
+        "href": "/about"
+      },
+      {
+        "label": "Products & Brands",
+        "href": "/products"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog"
+      },
+      {
+        "label": "Contact Us",
+        "href": "/contact"
+      }
     ],
     "marketsTitle": "Markets",
     "markets": [
@@ -282,10 +309,22 @@
     "whoWeAreP3": "Our connection to what we distribute is direct and deep. We serve as the official partner behind premium global brands like TUNG for specialized oral care and PaperMints for instant breath freshness. From the moment a product leaves the factory, we handle smart warehousing and logistics, leveraging strong distribution networks to secure a permanent, prominent placement on the shelves of leading pharmacies and retail chains.",
     "atAGlance": "At a glance",
     "facts": [
-      { "label": "Headquarters", "value": "Dubai, United Arab Emirates" },
-      { "label": "Markets", "value": "6 GCC countries" },
-      { "label": "Channels", "value": "Pharmacy, modern trade & retail" },
-      { "label": "Flagship brands", "value": "PaperMints & TUNG" }
+      {
+        "label": "Headquarters",
+        "value": "Dubai, United Arab Emirates"
+      },
+      {
+        "label": "Markets",
+        "value": "6 GCC countries"
+      },
+      {
+        "label": "Channels",
+        "value": "Pharmacy, modern trade & retail"
+      },
+      {
+        "label": "Flagship brands",
+        "value": "PaperMints & TUNG"
+      }
     ]
   },
   "contactPage": {
@@ -303,8 +342,14 @@
         "label": "Office",
         "value": "Dubai Silicon Oasis, Dubai, United Arab Emirates"
       },
-      { "label": "Email", "value": "partners@renadtrading.com" },
-      { "label": "Phone", "value": "+971 4 000 0000" }
+      {
+        "label": "Email",
+        "value": "partners@renadtrading.com"
+      },
+      {
+        "label": "Phone",
+        "value": "+971 4 000 0000"
+      }
     ],
     "followUs": "Follow us",
     "marketsTitle": "Markets we serve"
@@ -340,44 +385,76 @@
         "title": "How International Brands Win Shelf Space in GCC Pharmacy Chains",
         "excerpt": "From registration to retail negotiation — the playbook for landing a global brand on Gulf shelves, and the pitfalls that slow new entrants down.",
         "date": "May 28, 2026",
-        "read": "5 min read"
+        "read": "5 min read",
+        "body": [
+          "Winning shelf space in the Gulf’s pharmacy chains starts long before the first purchase order. Buyers evaluate a brand on registration readiness, supply reliability, and the strength of the launch plan behind it.",
+          "The brands that move fastest arrive with completed product registration, Arabic-compliant labeling, and a clear pricing structure that protects retailer margin. Anything missing becomes a reason to delay.",
+          "Just as important is the partner standing behind the brand. A distributor with existing category relationships, merchandising muscle, and local market data turns a cold pitch into a confident yes."
+        ]
       },
       {
         "tag": "Oral Care",
         "title": "The Growing Demand for Premium Mouth Care Across the Gulf",
         "excerpt": "Why breath and tongue care is one of the fastest-growing personal-care segments in the region — and what it means for brands.",
         "date": "May 14, 2026",
-        "read": "4 min read"
+        "read": "4 min read",
+        "body": [
+          "Oral care in the Gulf has shifted from a basic-need category into a premium, routine-driven segment. Shoppers increasingly look beyond toothpaste to tongue cleaners, breath sprays, and specialized rinses.",
+          "This growth is driven by rising health awareness, a young population, and a strong cultural emphasis on personal grooming and hospitality.",
+          "For brands, the opportunity is to enter early with differentiated, well-positioned products — and to support them with education at the shelf, where most premium-care decisions are still made."
+        ]
       },
       {
         "tag": "Distribution",
         "title": "Building a Compliant, Reliable Route to Retail in Six Markets",
         "excerpt": "Inside the distribution backbone that moves products from import to shelf across all six GCC countries.",
         "date": "Apr 30, 2026",
-        "read": "6 min read"
+        "read": "6 min read",
+        "body": [
+          "A dependable route to retail across the GCC means more than trucks and warehouses. It means clearing customs correctly, honoring cold-chain and storage requirements, and meeting each retailer’s delivery windows.",
+          "Six markets means six regulatory environments, but a unified distribution backbone keeps documentation, traceability, and replenishment consistent across all of them.",
+          "The payoff is predictability: brands that can promise on-shelf availability win repeat orders and stronger placement over time."
+        ]
       },
       {
         "tag": "Retail",
         "title": "Modern Trade vs. Traditional Retail: Where Brands Should Focus",
         "excerpt": "A look at the shifting balance between modern trade and traditional channels in the Gulf consumer market.",
         "date": "Apr 12, 2026",
-        "read": "5 min read"
+        "read": "5 min read",
+        "body": [
+          "The Gulf consumer market is split between fast-growing modern trade — hypermarkets, pharmacy chains, and e-commerce — and a still-significant traditional retail base.",
+          "Modern trade offers scale, data, and brand-building visibility, but comes with listing fees and tougher negotiations. Traditional retail offers reach and resilience, especially outside major cities.",
+          "The right answer is rarely either-or. A channel strategy weighted to where your category’s shoppers actually buy — backed by a distributor who serves both — protects volume while you build the premium story."
+        ]
       },
       {
         "tag": "Regulation",
         "title": "Navigating Product Registration and Labeling in the GCC",
         "excerpt": "The regulatory essentials every consumer brand needs to know before entering Saudi Arabia and the wider Gulf.",
         "date": "Mar 25, 2026",
-        "read": "7 min read"
+        "read": "7 min read",
+        "body": [
+          "Product registration is the gate every consumer brand must pass before it can legally sell in the Gulf. Requirements vary by category and country, and getting them wrong can stall a launch for months.",
+          "Labeling carries its own rules: accurate Arabic translation, mandatory information, and category-specific claims all have to be right before products reach the shelf.",
+          "Working with a partner who manages registration and labeling end-to-end removes the most common cause of delayed market entry — and frees the brand to focus on growth."
+        ]
       },
       {
         "tag": "Insights",
         "title": "Five Signals Your Brand Is Ready to Expand into the Gulf",
         "excerpt": "Practical indicators that it's time to take your consumer brand into the GCC — and how a distribution partner accelerates it.",
         "date": "Mar 08, 2026",
-        "read": "4 min read"
+        "read": "4 min read",
+        "body": [
+          "Expanding into the GCC is a major step, and timing matters. A few clear signals suggest a brand is ready to make the move.",
+          "Consistent demand in your home market, healthy margins that can absorb distribution costs, stable supply, and early inbound interest from the region are all strong indicators.",
+          "When those boxes are checked, the deciding factor is partnership: a distributor that handles registration, logistics, and retail relationships turns readiness into a successful launch."
+        ]
       }
-    ]
+    ],
+    "backToBlog": "Back to blog",
+    "relatedReading": "Related reading"
   },
   "productsPage": {
     "title": "Products — Renad International Trading",
@@ -414,7 +491,11 @@
         "name": "PaperMints Strips",
         "short": "Ultra-thin dissolving breath-freshening strips.",
         "long": "Sugar-free strips that dissolve instantly on the tongue for discreet, on-the-go breath freshness. A pocket-sized icon of oral freshness, distributed by Renad across GCC pharmacies and modern trade.",
-        "features": ["Sugar-free", "Pocket format", "Instant freshness"]
+        "features": [
+          "Sugar-free",
+          "Pocket format",
+          "Instant freshness"
+        ]
       },
       {
         "id": "pm-drops",
@@ -422,7 +503,11 @@
         "name": "PaperMints Drops",
         "short": "Long-lasting breath-freshening drops.",
         "long": "Concentrated mint drops delivering hours of fresh breath in a refillable tin — a premium everyday essential for the modern Gulf consumer.",
-        "features": ["Long-lasting", "Refillable tin", "Strong mint"]
+        "features": [
+          "Long-lasting",
+          "Refillable tin",
+          "Strong mint"
+        ]
       },
       {
         "id": "pm-spray",
@@ -430,7 +515,11 @@
         "name": "PaperMints Spray",
         "short": "Fast, fine breath-freshening spray.",
         "long": "A fine-mist spray for an instant burst of freshness anywhere. Compact, travel-friendly, and registered for retail across all six GCC markets.",
-        "features": ["Fine mist", "Travel-friendly", "Instant"]
+        "features": [
+          "Fine mist",
+          "Travel-friendly",
+          "Instant"
+        ]
       },
       {
         "id": "pm-caps",
@@ -438,7 +527,11 @@
         "name": "PaperMints Capsules",
         "short": "Single-dose freshness capsules.",
         "long": "Convenient single-dose capsules that release a clean, lasting mint — ideal for impulse pharmacy and checkout placement.",
-        "features": ["Single-dose", "Clean mint", "Impulse-ready"]
+        "features": [
+          "Single-dose",
+          "Clean mint",
+          "Impulse-ready"
+        ]
       },
       {
         "id": "tung-brush",
@@ -446,7 +539,11 @@
         "name": "TUNG Brush",
         "short": "Specialist tongue-cleaning brush.",
         "long": "Ergonomically designed to reach and clean the back of the tongue — the real source of bad breath. The category-defining tool in modern tongue care.",
-        "features": ["Targets odor source", "Ergonomic", "Category-defining"]
+        "features": [
+          "Targets odor source",
+          "Ergonomic",
+          "Category-defining"
+        ]
       },
       {
         "id": "tung-gel",
@@ -454,7 +551,11 @@
         "name": "TUNG Gel",
         "short": "Tongue-cleaning gel with fresh finish.",
         "long": "A purpose-built gel that pairs with the TUNG Brush to neutralize odor and leave a clean, fresh finish. Sold as a system for maximum effect.",
-        "features": ["Neutralizes odor", "Pairs with brush", "Fresh finish"]
+        "features": [
+          "Neutralizes odor",
+          "Pairs with brush",
+          "Fresh finish"
+        ]
       },
       {
         "id": "tung-kit",
@@ -462,7 +563,11 @@
         "name": "TUNG Fresh Kit",
         "short": "Complete tongue-care system.",
         "long": "The full TUNG system — brush plus gel — packaged for retail and education. The simplest way to bring tongue care to a new market.",
-        "features": ["Brush + gel", "Retail-ready", "Education pack"]
+        "features": [
+          "Brush + gel",
+          "Retail-ready",
+          "Education pack"
+        ]
       }
     ]
   }

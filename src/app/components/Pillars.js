@@ -12,7 +12,7 @@ export default function Pillars({ dict }) {
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-10">
         {/* Heading */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cta">
+          <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
             {t.eyebrow}
           </span>
           <h2 className="mt-4 font-display text-4xl font-bold leading-[1.1] text-slate-900 sm:text-5xl">

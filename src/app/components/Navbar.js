@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import LangSwitcher from "./LangSwitcher";
 import { Menu, Search, Linkedin, XTwitter, Instagram } from "./icons";
@@ -10,6 +11,7 @@ const socials = [Linkedin, XTwitter, Instagram];
 
 export default function Navbar() {
   const { lang, dict } = useLang();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
@@ -19,6 +21,12 @@ export default function Navbar() {
     { label: dict.nav.blog, href: `/${lang}/blog` },
     { label: dict.nav.contactUs, href: `/${lang}/contact` },
   ];
+
+  // Home matches exactly; other links also match their sub-routes (e.g. /blog/post)
+  const isActive = (href) =>
+    href === `/${lang}`
+      ? pathname === href
+      : pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -41,21 +49,34 @@ export default function Navbar() {
         <Logo light={light} />
 
         {/* Links */}
-        <ul className="hidden items-center gap-7 lg:flex">
-          {links.map((l) => (
-            <li key={l.label}>
-              <a
-                href={l.href}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  light
-                    ? "text-white/85 hover:text-white"
-                    : "text-slate-600 hover:text-primary"
-                }`}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
+        <ul className="hidden items-center gap-9 lg:flex">
+          {links.map((l) => {
+            const active = isActive(l.href);
+            return (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative text-base transition-colors duration-200 ${
+                    active ? "font-semibold" : "font-medium"
+                  } ${
+                    active
+                      ? light
+                        ? "text-white"
+                        : "text-primary"
+                      : light
+                      ? "text-white/85 hover:text-white"
+                      : "text-slate-600 hover:text-primary"
+                  }`}
+                >
+                  {l.label}
+                  {active && (
+                    <span className="absolute -bottom-1.5 start-0 h-0.5 w-full rounded-full bg-cta" />
+                  )}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Right cluster */}

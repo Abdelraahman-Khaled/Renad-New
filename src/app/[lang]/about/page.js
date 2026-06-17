@@ -46,7 +46,7 @@ export default async function AboutPage({ params }) {
           />
           <div className="absolute inset-0 bg-linear-to-b from-primary-dark to-transparent" />
           <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-36 text-center lg:px-10 lg:pb-28 lg:pt-44">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-cta">
+            <span className="text-base font-semibold uppercase tracking-[0.2em] text-cta">
               {t.eyebrow}
             </span>
             <h1 className="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
@@ -72,7 +72,7 @@ export default async function AboutPage({ params }) {
         <section className="bg-white">
           <div className="mx-auto grid max-w-7xl items-start gap-16 px-6 py-24 lg:grid-cols-2 lg:px-10">
             <div>
-              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cta">
+              <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
                 {t.whoWeAreEyebrow}
               </span>
               <h2 className="mt-4 font-display text-4xl font-bold leading-[1.1] text-slate-900 sm:text-5xl">

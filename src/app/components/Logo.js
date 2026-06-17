@@ -18,4 +18,3 @@ export default function Logo({ className = "", ...props }) {
     </a>
   );
 }
-

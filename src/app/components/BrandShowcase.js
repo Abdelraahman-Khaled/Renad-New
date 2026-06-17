@@ -42,7 +42,7 @@ function Spotlight({ b, reverse }) {
     <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
       {/* Text */}
       <div className={reverse ? "lg:order-2" : ""}>
-        <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cta">
+        <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
           Brand Spotlight
         </span>
         <div className="mt-4 flex items-center gap-3">
@@ -104,7 +104,7 @@ export default function BrandShowcase() {
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
         {/* Intro / ecosystem */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cta">
+          <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
             Our Brands
           </span>
           <h2 className="mt-4 font-display text-4xl font-bold leading-[1.1] text-slate-900 sm:text-5xl">

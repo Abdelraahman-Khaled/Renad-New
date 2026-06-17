@@ -20,7 +20,7 @@ export default function LatestNews({ dict }) {
         {/* Header */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cta">
+            <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
               {t.eyebrow}
             </span>
             <h2 className="mt-3 font-display text-4xl font-bold leading-[1.1] text-slate-900 sm:text-5xl">

@@ -13,7 +13,7 @@ const collage = [
     cls: "",
   },
   {
-    src: "/images/stats2 .png",
+    src: "/images/stats2.png",
     alt: "Retail partner",
     cls: "",
   },
@@ -73,7 +73,7 @@ export default function Progress({ dict }) {
       <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-16 lg:px-10">
         {/* Left: heading + stat cards */}
         <div>
-          <span className="text-sm font-semibold uppercase tracking-[0.18em] text-cta">
+          <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
             {t.eyebrow}
           </span>
           <h2 className="mt-4 font-display text-4xl font-bold leading-[1.1] text-slate-900 sm:text-5xl">

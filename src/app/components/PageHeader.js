@@ -24,7 +24,7 @@ export default function PageHeader({
       <div className="absolute inset-0 bg-linear-to-b from-primary-dark to-transparent" />
       <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-36 text-center lg:px-10 lg:pb-24 lg:pt-44">
         {eyebrow && (
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-cta">
+          <span className="text-base font-semibold uppercase tracking-[0.2em] text-cta">
             {eyebrow}
           </span>
         )}

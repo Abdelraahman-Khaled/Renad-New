@@ -37,7 +37,7 @@ export default function VisionMission({ dict }) {
 
       <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.22em] text-cta">
+          <span className="text-base font-semibold uppercase tracking-[0.22em] text-cta">
             {t.eyebrow}
           </span>
           <p className="mt-6 font-display text-2xl font-semibold leading-snug text-white sm:text-3xl lg:text-4xl">

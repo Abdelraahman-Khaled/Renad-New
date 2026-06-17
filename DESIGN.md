@@ -42,7 +42,7 @@ Brand colors are drawn from the Renad logo: a teal-cyan wordmark + a red monogra
 | Display | `text-5xl`–`text-7xl font-bold` | Hero / page headers |
 | H2 | `text-4xl sm:text-5xl font-bold` | Section titles |
 | H3 | `text-lg`–`text-2xl font-bold` | Card titles |
-| Eyebrow | `text-sm font-semibold uppercase tracking-[0.18em] text-cta` | Above every section H2 |
+| Eyebrow | `text-base font-semibold uppercase tracking-[0.18em] text-cta` | Above every section H2 |
 | Body | `text-base`–`text-lg leading-relaxed text-slate-500` | Paragraphs |
 | Caption | `text-xs`–`text-sm text-slate-400` | Meta, labels |
 
