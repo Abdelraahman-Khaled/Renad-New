@@ -6,7 +6,7 @@ import PageHeader from "../../components/PageHeader";
 import FinalCTA from "../../components/FinalCTA";
 import { ArrowRight } from "../../components/icons";
 import { getDictionary, hasLocale } from "../dictionaries";
-import { blogPosts } from "./blog-data";
+import { getBlogs, blogImage, blogImageAlt, categoryLabel } from "./api";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
@@ -24,6 +24,7 @@ export default async function BlogPage({ params }) {
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
   const t = dict.blogPage;
+  const { blogs } = await getBlogs(lang);
 
   return (
     <div className="relative">
@@ -40,45 +41,46 @@ export default async function BlogPage({ params }) {
 
         <section className="bg-white">
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {t.posts.map((p, i) => (
-                <Link
-                  key={p.title}
-                  href={`/${lang}/blog/${blogPosts[i].slug}`}
-                  className="group flex flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-card transition-shadow duration-300 hover:shadow-lift"
-                >
-                  <div className="relative h-52 overflow-hidden">
-                    <Image
-                      src={blogPosts[i].image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <span className="absolute left-4 top-4 rounded-full bg-cta px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm">
-                      {p.tag}
-                    </span>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center gap-3 text-xs font-medium text-slate-400">
-                      <span>{p.date}</span>
-                      <span className="h-1 w-1 rounded-full bg-slate-300" />
-                      <span>{p.read}</span>
+            {blogs.length === 0 ? (
+              <p className="text-center text-lg text-slate-500">{t.empty}</p>
+            ) : (
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {blogs.map((post) => (
+                  <Link
+                    key={post.id}
+                    href={`/${lang}/blog/${encodeURIComponent(post.slug)}`}
+                    className="group flex flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-card transition-shadow duration-300 hover:shadow-lift"
+                  >
+                    <div className="relative h-52 overflow-hidden">
+                      <Image
+                        src={blogImage(post)}
+                        alt={blogImageAlt(post)}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      {post.category && (
+                        <span className="absolute left-4 top-4 rounded-full bg-cta px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm">
+                          {categoryLabel(post.category, dict)}
+                        </span>
+                      )}
                     </div>
-                    <h2 className="mt-3 font-display text-lg font-bold leading-snug text-slate-900 transition-colors duration-200 group-hover:text-primary">
-                      {p.title}
-                    </h2>
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-500">
-                      {p.excerpt}
-                    </p>
-                    <span className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 group-hover:text-primary-dark">
-                      {t.readMore}
-                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0" />
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <h2 className="font-display text-lg font-bold leading-snug text-slate-900 transition-colors duration-200 group-hover:text-primary">
+                        {post.title}
+                      </h2>
+                      <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-500">
+                        {post.description}
+                      </p>
+                      <span className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-primary transition-colors duration-200 group-hover:text-primary-dark">
+                        {t.readMore}
+                        <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Search, ArrowRight, BadgeCheck } from "./icons";
-import { PaperMintsMark, TungMark } from "./BrandMark";
+import Image from "next/image";
+import { useState, useEffect, useMemo } from "react";
+import { Search, ArrowRight } from "./icons";
 import { useLang } from "../[lang]/LangContext";
 
 /* ---- inline icons ---- */
@@ -32,44 +32,10 @@ const Share = ({ className }) => (
   </svg>
 );
 
-const brandMeta = {
-  papermints: { color: "#1f9d57", soft: "#a7e8c4", Mark: PaperMintsMark, label: "Breath Care" },
-  tung: { color: "#1c8fd6", soft: "#a9dbf6", Mark: TungMark, label: "Tongue Care" },
-};
+const FALLBACK_IMAGE = "/images/products-hero.png";
 
-function Pack({ brand, color }) {
-  if (brand === "tung") {
-    return (
-      <svg viewBox="0 0 120 150" className="h-3/5 w-auto drop-shadow-lg" aria-hidden>
-        <rect x="48" y="10" width="24" height="16" rx="4" fill={color} />
-        <path d="M44 26 H76 L82 130 Q60 142 38 130 Z" fill="#fff" />
-        <rect x="40" y="74" width="40" height="34" fill={color} fillOpacity="0.16" />
-        <circle cx="60" cy="52" r="9" fill={color} fillOpacity="0.28" />
-      </svg>
-    );
-  }
-  return (
-    <svg viewBox="0 0 120 150" className="h-3/5 w-auto drop-shadow-lg" aria-hidden>
-      <rect x="50" y="10" width="20" height="10" rx="3" fill="#fff" />
-      <rect x="34" y="18" width="52" height="118" rx="12" fill="#fff" />
-      <line x1="34" y1="44" x2="86" y2="44" stroke={color} strokeOpacity="0.25" strokeWidth="2" />
-      <rect x="34" y="70" width="52" height="40" fill={color} fillOpacity="0.15" />
-    </svg>
-  );
-}
-
-function Thumb({ brand, className = "" }) {
-  const m = brandMeta[brand];
-  return (
-    <div
-      className={`relative flex items-center justify-center overflow-hidden ${className}`}
-      style={{ background: `linear-gradient(150deg, ${m.color}, ${m.soft})` }}
-    >
-      <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full border-8 border-white/15" aria-hidden />
-      <Pack brand={brand} color={m.color} />
-    </div>
-  );
-}
+const productImage = (p) => p?.photos?.[0]?.url || FALLBACK_IMAGE;
+const productImageAlt = (p) => p?.photos?.[0]?.alt || "";
 
 function Overlay({ onClose, children }) {
   return (
@@ -84,26 +50,33 @@ function Overlay({ onClose, children }) {
   );
 }
 
-export default function ProductsExplorer() {
-  const { dict } = useLang();
+export default function ProductsExplorer({ products = [] }) {
+  const { dict, lang } = useLang();
   const t = dict.productsExplorer;
-  const products = t.products;
 
-  const filters = [
-    { id: "all", label: t.filters.all },
-    { id: "papermints", label: t.filters.papermints },
-    { id: "tung", label: t.filters.tung },
-    { id: "food", label: t.filters.food, soon: true },
-  ];
+  // Fixed filter set defined in the dictionary — the filter bar stays the same
+  // regardless of which categories the API currently returns. Categories listed
+  // in `comingSoonCategories` have no products yet, so their chips open a
+  // "coming soon" prompt instead of filtering.
+  const categoryFilters = useMemo(() => {
+    const soonIds = (t.comingSoonCategories || []).map(Number);
+    return Object.entries(t.categories || {}).map(([id, label]) => ({
+      id: Number(id),
+      label,
+      soon: soonIds.includes(Number(id)),
+    }));
+  }, [t.categories, t.comingSoonCategories]);
+  const categoryLabel = (id) =>
+    t.categories?.[String(id)] || `${t.categoryFallback} ${id}`;
 
   const [active, setActive] = useState("all");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState(null);
-  const [comingSoon, setComingSoon] = useState(false);
+  const [comingSoon, setComingSoon] = useState(null); // category id, or null
   const [notified, setNotified] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const open = Boolean(selected) || comingSoon;
+  const open = Boolean(selected) || comingSoon !== null;
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -116,7 +89,7 @@ export default function ProductsExplorer() {
     const onKey = (e) => {
       if (e.key === "Escape") {
         setSelected(null);
-        setComingSoon(false);
+        setComingSoon(null);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -124,25 +97,17 @@ export default function ProductsExplorer() {
   }, []);
 
   const q = query.trim().toLowerCase();
-  const visible = products.filter(
-    (p) =>
-      (active === "all" || p.brand === active) &&
-      (q === "" || p.name.toLowerCase().includes(q) || p.short.toLowerCase().includes(q))
-  );
-
-  const handleFilter = (f) => {
-    if (f.soon) {
-      setComingSoon(true);
-      return;
-    }
-    setActive(f.id);
-  };
+  const visible = products.filter((p) => {
+    const inCategory = active === "all" || p.category === active;
+    const text = `${p.description || ""} ${p.size || ""}`.toLowerCase();
+    return inCategory && (q === "" || text.includes(q));
+  });
 
   const handleShare = async (p) => {
     const url = typeof window !== "undefined" ? window.location.href : "";
     if (navigator.share) {
       try {
-        await navigator.share({ title: `Renad — ${p.name}`, text: p.short, url });
+        await navigator.share({ title: "Renad", text: p.description || "", url });
         return;
       } catch {
         /* user cancelled */
@@ -177,68 +142,92 @@ export default function ProductsExplorer() {
 
         {/* Filters */}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {filters.map((f) => {
-            const isActive = active === f.id && !f.soon;
-            return (
+          <button
+            type="button"
+            onClick={() => setActive("all")}
+            className={`inline-flex cursor-pointer items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-200 ${
+              active === "all"
+                ? "bg-primary text-white"
+                : "border border-slate-200 bg-white text-slate-600 hover:border-primary hover:text-primary"
+            }`}
+          >
+            {t.filters.all}
+          </button>
+
+          {categoryFilters.map((f) =>
+            f.soon ? (
               <button
                 key={f.id}
                 type="button"
-                onClick={() => handleFilter(f)}
+                onClick={() => setComingSoon(f.id)}
+                className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-600 transition-colors duration-200 hover:border-primary hover:text-primary"
+              >
+                {f.label}
+                <span className="rounded-full bg-cta/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-cta">
+                  {t.soon}
+                </span>
+              </button>
+            ) : (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => setActive(f.id)}
                 className={`inline-flex cursor-pointer items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-200 ${
-                  isActive
+                  active === f.id
                     ? "bg-primary text-white"
                     : "border border-slate-200 bg-white text-slate-600 hover:border-primary hover:text-primary"
                 }`}
               >
                 {f.label}
-                {f.soon && (
-                  <span className="rounded-full bg-cta/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-cta">
-                    {t.soon}
-                  </span>
-                )}
               </button>
-            );
-          })}
+            )
+          )}
         </div>
 
         {/* Grid */}
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {visible.map((p) => {
-            const m = brandMeta[p.brand];
-            return (
-              <button
-                key={p.id}
-                type="button"
-                onClick={() => setSelected(p)}
-                className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white text-start shadow-card transition-shadow duration-300 hover:shadow-lift"
-              >
-                <Thumb brand={p.brand} className="h-44" />
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-center justify-between">
-                    <m.Mark className="text-sm" />
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                      {m.label}
-                    </span>
-                  </div>
-                  <h3 className="mt-2 font-display text-base font-bold text-slate-900">
-                    {p.name}
-                  </h3>
-                  <p className="mt-1 flex-1 text-sm leading-relaxed text-slate-500">
-                    {p.short}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary-dark">
-                    {t.viewDetails}
-                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0" />
+          {visible.map((p) => (
+            <button
+              key={p.id}
+              type="button"
+              onClick={() => setSelected(p)}
+              className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white text-start shadow-card transition-shadow duration-300 hover:shadow-lift"
+            >
+              <div className="relative h-44 overflow-hidden bg-surface">
+                <Image
+                  src={productImage(p)}
+                  alt={productImageAlt(p)}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 33vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {p.category !== null && p.category !== undefined && (
+                  <span className="absolute left-4 top-4 rounded-full bg-cta px-3 py-1 text-[11px] font-semibold text-white shadow-sm">
+                    {categoryLabel(p.category)}
                   </span>
-                </div>
-              </button>
-            );
-          })}
+                )}
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="line-clamp-2 font-display text-base font-bold text-slate-900">
+                  {p.description}
+                </h3>
+                {p.size && (
+                  <p className="mt-1.5 text-xs font-medium text-slate-400">
+                    {t.sizeLabel}: {p.size}
+                  </p>
+                )}
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary-dark">
+                  {t.viewDetails}
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0" />
+                </span>
+              </div>
+            </button>
+          ))}
         </div>
 
         {visible.length === 0 && (
           <p className="mt-16 text-center text-slate-400">
-            {t.noResults}
+            {products.length === 0 ? t.empty : t.noResults}
           </p>
         )}
       </div>
@@ -256,52 +245,49 @@ export default function ProductsExplorer() {
               <Close className="h-5 w-5" />
             </button>
             <div className="grid sm:grid-cols-2">
-              <Thumb brand={selected.brand} className="h-56 sm:h-full" />
+              <div className="relative h-56 bg-surface sm:h-full">
+                <Image
+                  src={productImage(selected)}
+                  alt={productImageAlt(selected)}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="p-7">
-                {(() => {
-                  const m = brandMeta[selected.brand];
-                  return (
-                    <>
-                      <div className="flex items-center gap-3">
-                        <m.Mark className="text-lg" />
-                        <span className="rounded-full bg-surface px-3 py-1 text-xs font-semibold text-primary-dark">
-                          {m.label}
-                        </span>
-                      </div>
-                      <h2 className="mt-4 font-display text-2xl font-bold text-slate-900">
-                        {selected.name}
-                      </h2>
-                      <p className="mt-3 text-sm leading-relaxed text-slate-500">
-                        {selected.long}
-                      </p>
-                      <ul className="mt-5 space-y-2.5">
-                        {selected.features.map((f) => (
-                          <li key={f} className="flex items-center gap-2.5 text-sm text-slate-700">
-                            <BadgeCheck className="h-5 w-5 text-primary" />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="mt-7 flex flex-wrap items-center gap-3">
-                        <a
-                          href="/contact"
-                          className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark"
-                        >
-                          {t.inquire}
-                          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0" />
-                        </a>
-                        <button
-                          type="button"
-                          onClick={() => handleShare(selected)}
-                          className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors duration-200 hover:border-primary hover:text-primary"
-                        >
-                          <Share className="h-4 w-4" />
-                          {copied ? t.linkCopied : t.share}
-                        </button>
-                      </div>
-                    </>
-                  );
-                })()}
+                {(selected.category !== null && selected.category !== undefined) && (
+                  <span className="inline-block rounded-full bg-surface px-3 py-1 text-xs font-semibold text-primary-dark">
+                    {categoryLabel(selected.category)}
+                  </span>
+                )}
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                  {selected.description}
+                </p>
+                {selected.size && (
+                  <p className="mt-4 text-sm text-slate-700">
+                    <span className="font-semibold text-slate-900">
+                      {t.sizeLabel}:
+                    </span>{" "}
+                    {selected.size}
+                  </p>
+                )}
+                <div className="mt-7 flex flex-wrap items-center gap-3">
+                  <a
+                    href={`/${lang}/contact`}
+                    className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-primary-dark"
+                  >
+                    {t.inquire}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5 rtl:group-hover:translate-x-0" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => handleShare(selected)}
+                    className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors duration-200 hover:border-primary hover:text-primary"
+                  >
+                    <Share className="h-4 w-4" />
+                    {copied ? t.linkCopied : t.share}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -309,10 +295,10 @@ export default function ProductsExplorer() {
       )}
 
       {/* Coming soon modal */}
-      {comingSoon && (
+      {comingSoon !== null && (
         <Overlay
           onClose={() => {
-            setComingSoon(false);
+            setComingSoon(null);
             setNotified(false);
           }}
         >
@@ -320,7 +306,7 @@ export default function ProductsExplorer() {
             <button
               type="button"
               onClick={() => {
-                setComingSoon(false);
+                setComingSoon(null);
                 setNotified(false);
               }}
               aria-label="Close"
@@ -333,7 +319,7 @@ export default function ProductsExplorer() {
               <Clock className="h-8 w-8" />
             </span>
             <h3 className="mt-5 font-display text-xl font-bold text-slate-900">
-              {t.comingSoonTitle}
+              {categoryLabel(comingSoon)}
             </h3>
 
             {notified ? (

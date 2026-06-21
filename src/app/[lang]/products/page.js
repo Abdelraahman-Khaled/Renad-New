@@ -4,6 +4,7 @@ import PageHeader from "../../components/PageHeader";
 import ProductsExplorer from "../../components/ProductsExplorer";
 import FinalCTA from "../../components/FinalCTA";
 import { getDictionary, hasLocale } from "../dictionaries";
+import { getProducts } from "./api";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
@@ -21,6 +22,7 @@ export default async function ProductsPage({ params }) {
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
   const t = dict.productsPage;
+  const { products } = await getProducts(lang);
 
   return (
     <div className="relative">
@@ -34,7 +36,7 @@ export default async function ProductsPage({ params }) {
           dict={dict}
           image="/images/products-hero.png"
         />
-        <ProductsExplorer />
+        <ProductsExplorer products={products} />
         <FinalCTA dict={dict} />
       </main>
       <Footer dict={dict} lang={lang} />

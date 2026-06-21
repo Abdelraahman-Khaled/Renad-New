@@ -9,6 +9,12 @@ const nextConfig = {
         hostname: "images.unsplash.com",
         pathname: "/**",
       },
+      {
+        // Blog photos served by the Rails backend (Active Storage proxy URLs)
+        protocol: "https",
+        hostname: "backend.renadintl.com",
+        pathname: "/**",
+      },
     ],
   },
 };

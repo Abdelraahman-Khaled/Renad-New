@@ -113,7 +113,7 @@ export default function Footer({ dict, lang }) {
                   className="flex items-center gap-3 text-white/70 transition-colors duration-200 hover:text-cta"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-cta" />
-                  +971 4 000 0000
+                  <bdi dir="ltr">+971 4 000 0000</bdi>
                 </a>
               </li>
             </ul>
@@ -123,10 +123,16 @@ export default function Footer({ dict, lang }) {
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-6 text-sm text-white/60 sm:flex-row">
           <p>{t.copyright}</p>
           <div className="flex gap-6">
-            <a href="#" className="transition-colors duration-200 hover:text-cta">
+            <a
+              href={`/${lang}/privacy`}
+              className="transition-colors duration-200 hover:text-cta"
+            >
               {t.privacy}
             </a>
-            <a href="#" className="transition-colors duration-200 hover:text-cta">
+            <a
+              href={`/${lang}/terms`}
+              className="transition-colors duration-200 hover:text-cta"
+            >
               {t.terms}
             </a>
           </div>

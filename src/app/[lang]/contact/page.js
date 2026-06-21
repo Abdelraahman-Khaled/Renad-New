@@ -48,7 +48,7 @@ export default async function ContactPage({ params }) {
         <section className="bg-white">
           <div className="mx-auto grid max-w-7xl items-start gap-12 px-6 py-24 lg:grid-cols-[1.3fr_1fr] lg:gap-16 lg:px-10">
             {/* Form */}
-            <div>
+            <div className="min-w-0">
               <h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
                 {t.formHeading}
               </h2>
@@ -61,7 +61,7 @@ export default async function ContactPage({ params }) {
             </div>
 
             {/* Details */}
-            <div className="flex flex-col gap-6">
+            <div className="flex min-w-0 flex-col gap-6">
               <div className="rounded-3xl border border-slate-100 bg-surface p-8 shadow-card">
                 <h3 className="font-display text-lg font-bold text-slate-900">
                   {t.detailsHeading}
@@ -75,7 +75,7 @@ export default async function ContactPage({ params }) {
                         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
                           <Icon className="h-5 w-5" />
                         </span>
-                        <span>
+                        <span className="min-w-0 wrap-break-word">
                           <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
                             {detail.label}
                           </span>
@@ -84,7 +84,8 @@ export default async function ContactPage({ params }) {
                               href={href}
                               className="font-display text-base font-semibold text-slate-800 transition-colors hover:text-primary"
                             >
-                              {detail.value}
+                              {/* Phone/email read left-to-right even inside the RTL card */}
+                              <bdi dir="ltr">{detail.value}</bdi>
                             </a>
                           ) : (
                             <span className="font-display text-base font-semibold text-slate-800">

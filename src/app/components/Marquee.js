@@ -38,14 +38,14 @@ export default function Marquee({ dict }) {
       `}</style>
 
       {/* Two ribbons crossing into an X */}
-      <div className="bg-surface py-16 overflow-hidden">
+      <div className="overflow-hidden bg-surface py-12 sm:py-16">
         <div className="relative h-[180px] w-full sm:h-[210px]">
-          {/* Teal ribbon — leans up */}
-          <div className="absolute left-1/2 top-1/2 w-[130%] -translate-x-1/2 -translate-y-1/2 rotate-[5deg] bg-primary py-3 shadow-lift">
+          {/* Teal ribbon — leans up (steeper on mobile so the X stays clean on narrow screens) */}
+          <div className="absolute left-1/2 top-1/2 w-[150%] -translate-x-1/2 -translate-y-1/2 rotate-10 bg-primary py-3 shadow-lift sm:w-[130%] sm:rotate-5">
             <MarqueeRow items={t.row1} duration={26} />
           </div>
           {/* Red ribbon — leans down, crosses on top */}
-          <div className="absolute left-1/2 top-1/2 w-[130%] -translate-x-1/2 -translate-y-1/2 -rotate-[5deg] bg-cta py-3 shadow-lift">
+          <div className="absolute left-1/2 top-1/2 w-[150%] -translate-x-1/2 -translate-y-1/2 rotate-[-10deg] bg-cta py-3 shadow-lift sm:w-[130%] sm:rotate-[-5deg]">
             <MarqueeRow items={t.row2} reverse duration={22} />
           </div>
         </div>

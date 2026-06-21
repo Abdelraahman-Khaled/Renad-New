@@ -4,8 +4,10 @@ import Footer from "../../components/Footer";
 import Pillars from "../../components/Pillars";
 import VisionMission from "../../components/VisionMission";
 import FinalCTA from "../../components/FinalCTA";
+import Faqs from "../../components/Faqs";
 import { MapPin, Globe, Store, BadgeCheck } from "../../components/icons";
 import { getDictionary, hasLocale } from "../dictionaries";
+import { getFaqs } from "./api";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
@@ -28,6 +30,7 @@ export default async function AboutPage({ params }) {
   const dict = await getDictionary(lang);
   const t = dict.aboutPage;
   const stats = dict.progress.stats;
+  const faqs = await getFaqs(lang);
 
   return (
     <div className="relative">
@@ -155,6 +158,7 @@ export default async function AboutPage({ params }) {
 
         <Pillars dict={dict} />
         <VisionMission dict={dict} />
+        {faqs.length > 0 && <Faqs faqs={faqs} dict={dict} />}
         <FinalCTA dict={dict} />
       </main>
 

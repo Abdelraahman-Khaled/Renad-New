@@ -97,7 +97,8 @@ export default function Progress({ dict }) {
                       highlight ? "text-white" : "text-slate-900"
                     }`}
                   >
-                    {s.value}
+                    {/* Isolate the numeric value so signs (+, %) keep correct order in RTL */}
+                    <bdi dir="ltr">{s.value}</bdi>
                   </p>
                   <p
                     className={`mt-2 text-sm font-medium ${

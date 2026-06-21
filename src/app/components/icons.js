@@ -76,6 +76,14 @@ export function ArrowRight({ className }) {
   );
 }
 
+export function ChevronDown({ className }) {
+  return (
+    <svg {...base} className={className}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
 export function Search({ className }) {
   return (
     <svg {...base} className={className}>
@@ -89,6 +97,14 @@ export function Menu({ className }) {
   return (
     <svg {...base} className={className}>
       <path d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  );
+}
+
+export function X({ className }) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M18 6 6 18M6 6l12 12" />
     </svg>
   );
 }

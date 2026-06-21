@@ -252,6 +252,148 @@
     "cta": "Partner with Renad",
     "secondary": "Explore Our Brands"
   },
+  "privacyPage": {
+    "title": "Privacy Policy — Renad International Trading",
+    "description": "How Renad International Trading collects, uses, and protects your personal information.",
+    "eyebrow": "Legal",
+    "heading": "Privacy Policy",
+    "subtitle": "How we collect, use, and safeguard your information when you interact with Renad International Trading.",
+    "breadcrumb": "Privacy Policy",
+    "lastUpdated": "Last updated: June 21, 2026",
+    "sections": [
+      {
+        "heading": "Introduction",
+        "body": [
+          "Renad International Trading FZCO (\"Renad\", \"we\", \"us\", or \"our\") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or contact us.",
+          "By using our website, you agree to the collection and use of information in accordance with this policy."
+        ]
+      },
+      {
+        "heading": "Information We Collect",
+        "body": [
+          "We may collect information you provide directly to us, such as your name, email address, phone number, company details, and any message you send through our contact or partnership forms.",
+          "We also collect certain information automatically when you visit our website, including your IP address, browser type, device information, and pages visited, through cookies and similar technologies."
+        ]
+      },
+      {
+        "heading": "How We Use Your Information",
+        "body": [
+          "We use the information we collect to respond to your enquiries, evaluate partnership and distribution opportunities, improve our website and services, and communicate updates that may be relevant to you.",
+          "We do not sell your personal information to third parties."
+        ]
+      },
+      {
+        "heading": "Sharing of Information",
+        "body": [
+          "We may share your information with trusted service providers who assist us in operating our website and conducting our business, provided they agree to keep this information confidential.",
+          "We may also disclose information where required by law or to protect our legal rights."
+        ]
+      },
+      {
+        "heading": "Data Security",
+        "body": [
+          "We implement reasonable technical and organizational measures to protect your personal information against unauthorized access, loss, or misuse. However, no method of transmission over the internet is completely secure."
+        ]
+      },
+      {
+        "heading": "Cookies",
+        "body": [
+          "Our website uses cookies to enhance your browsing experience and analyze site traffic. You can control or disable cookies through your browser settings, though some features of the site may not function properly as a result."
+        ]
+      },
+      {
+        "heading": "Your Rights",
+        "body": [
+          "Subject to applicable law, you may have the right to access, correct, or request deletion of your personal information. To exercise these rights, please contact us using the details below."
+        ]
+      },
+      {
+        "heading": "Changes to This Policy",
+        "body": [
+          "We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date."
+        ]
+      },
+      {
+        "heading": "Contact Us",
+        "body": [
+          "If you have any questions about this Privacy Policy, please contact us at partners@renadtrading.com."
+        ]
+      }
+    ]
+  },
+  "termsPage": {
+    "title": "Terms of Service — Renad International Trading",
+    "description": "The terms and conditions governing your use of the Renad International Trading website.",
+    "eyebrow": "Legal",
+    "heading": "Terms of Service",
+    "subtitle": "The terms and conditions that govern your use of the Renad International Trading website.",
+    "breadcrumb": "Terms of Service",
+    "lastUpdated": "Last updated: June 21, 2026",
+    "sections": [
+      {
+        "heading": "Acceptance of Terms",
+        "body": [
+          "By accessing or using the Renad International Trading website, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our website."
+        ]
+      },
+      {
+        "heading": "Use of the Website",
+        "body": [
+          "You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of, or restrict the use of, this website by any third party.",
+          "You may not attempt to gain unauthorized access to any part of the website, its servers, or any connected systems."
+        ]
+      },
+      {
+        "heading": "Intellectual Property",
+        "body": [
+          "All content on this website, including text, graphics, logos, and images, is the property of Renad International Trading or its licensors and is protected by applicable intellectual property laws.",
+          "You may not reproduce, distribute, or use any content without our prior written permission."
+        ]
+      },
+      {
+        "heading": "Products and Brands",
+        "body": [
+          "Product and brand information presented on this website is for general informational purposes only. Availability, specifications, and brand partnerships may change without notice."
+        ]
+      },
+      {
+        "heading": "Third-Party Links",
+        "body": [
+          "Our website may contain links to third-party websites. We are not responsible for the content, policies, or practices of any third-party sites."
+        ]
+      },
+      {
+        "heading": "Disclaimer of Warranties",
+        "body": [
+          "This website is provided on an \"as is\" and \"as available\" basis without warranties of any kind, either express or implied. We do not warrant that the website will be uninterrupted, error-free, or free of harmful components."
+        ]
+      },
+      {
+        "heading": "Limitation of Liability",
+        "body": [
+          "To the fullest extent permitted by law, Renad International Trading shall not be liable for any indirect, incidental, or consequential damages arising from your use of, or inability to use, this website."
+        ]
+      },
+      {
+        "heading": "Governing Law",
+        "body": [
+          "These Terms of Service are governed by and construed in accordance with the laws of the United Arab Emirates, without regard to its conflict of law provisions."
+        ]
+      },
+      {
+        "heading": "Changes to These Terms",
+        "body": [
+          "We may revise these Terms of Service at any time. Continued use of the website after changes are posted constitutes acceptance of the revised terms."
+        ]
+      },
+      {
+        "heading": "Contact Us",
+        "body": [
+          "If you have any questions about these Terms of Service, please contact us at partners@renadtrading.com."
+        ]
+      }
+    ]
+  },
   "footer": {
     "description": "Renad International Trading FZCO — a UAE-based distribution partner connecting global consumer brands with retail networks across the GCC.",
     "menuTitle": "Menu",
@@ -325,7 +467,9 @@
         "label": "Flagship brands",
         "value": "PaperMints & TUNG"
       }
-    ]
+    ],
+    "faqsEyebrow": "FAQ",
+    "faqsHeading": "Frequently asked questions"
   },
   "contactPage": {
     "title": "Contact Us — Renad International Trading",
@@ -454,7 +598,12 @@
       }
     ],
     "backToBlog": "Back to blog",
-    "relatedReading": "Related reading"
+    "relatedReading": "Related reading",
+    "empty": "No articles have been published yet. Please check back soon.",
+    "faqsHeading": "Frequently asked questions",
+    "categories": {
+      "digital_marketing": "Digital Marketing"
+    }
   },
   "productsPage": {
     "title": "Products — Renad International Trading",
@@ -467,6 +616,16 @@
   "productsExplorer": {
     "searchPlaceholder": "Search products…",
     "searchLabel": "Search products",
+    "empty": "No products have been published yet. Please check back soon.",
+    "sizeLabel": "Size",
+    "categoryFallback": "Category",
+    "categories": {
+      "0": "PaperMints",
+      "1": "TUNG Oral Care",
+      "2": "Food & Sweets",
+      "3": "Medical"
+    },
+    "comingSoonCategories": [2, 3],
     "viewDetails": "View details",
     "noResults": "No products match your search.",
     "inquire": "Inquire about this product",

@@ -12,12 +12,14 @@ import Partners from "../components/Partners";
 import FinalCTA from "../components/FinalCTA";
 import Footer from "../components/Footer";
 import { getDictionary, hasLocale } from "./dictionaries";
+import { getBlogs } from "./blog/api";
 import { notFound } from "next/navigation";
 
 export default async function Home({ params }) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
+  const { blogs } = await getBlogs(lang);
 
   return (
     <div className="relative">
@@ -31,7 +33,7 @@ export default async function Home({ params }) {
         <Marquee dict={dict} />
         <HowWeWork dict={dict} />
         <VisionMission dict={dict} />
-        <LatestNews dict={dict} />
+        <LatestNews dict={dict} lang={lang} blogs={blogs} />
         <Testimonials />
         <Partners />
         <FinalCTA dict={dict} />

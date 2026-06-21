@@ -5,7 +5,16 @@ import { useLang } from "../[lang]/LangContext";
 
 function ArrowUpRight({ className }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2.2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className={className}
+    >
       <path d="M7 7h10v10M7 17 17 7" />
     </svg>
   );
@@ -36,7 +45,10 @@ export default function Hero() {
     <section id="top" className="bg-white px-3 pt-3 sm:px-4 lg:px-6 mb-6">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl">
         {/* Full-bleed background */}
-        <div className="relative" style={{ minHeight: "clamp(560px, 82vh, 780px)" }}>
+        <div
+          className="relative"
+          style={{ minHeight: "clamp(560px, 82vh, 780px)" }}
+        >
           <video
             src="/images/b01.mp4"
             autoPlay
@@ -59,8 +71,8 @@ export default function Hero() {
                 {s.tag}
               </span>
 
-              <div className="mt-5 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-                <h1 className="max-w-3xl font-display text-5xl font-bold leading-[0.98] text-white sm:text-6xl lg:text-7xl">
+              <div className="mt-4 flex flex-col gap-6 sm:mt-5 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+                <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl sm:leading-none md:text-6xl lg:text-7xl lg:leading-[0.98]">
                   {s.pre} <span className="text-cta">{s.hi}</span>
                 </h1>
 
@@ -92,14 +104,15 @@ export default function Hero() {
                 aria-label={`${dict.hero.goToSlide} ${i + 1}`}
                 aria-current={i === active}
                 className={`w-2.5 cursor-pointer rounded-full transition-all duration-300 ${
-                  i === active ? "h-9 bg-cta" : "h-2.5 bg-white/50 hover:bg-white/80"
+                  i === active
+                    ? "h-9 bg-cta"
+                    : "h-2.5 bg-white/50 hover:bg-white/80"
                 }`}
               />
             ))}
           </div>
         </div>
       </div>
-     
     </section>
   );
 }
