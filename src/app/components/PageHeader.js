@@ -24,7 +24,7 @@ export default function PageHeader({
       <div className="absolute inset-0 bg-linear-to-b from-primary-dark to-transparent" />
       <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-36 text-center lg:px-10 lg:pb-24 lg:pt-44">
         {eyebrow && (
-          <span className="text-base font-semibold uppercase tracking-[0.2em] text-cta">
+          <span className="text-lg font-semibold uppercase tracking-[0.2em] text-cta">
             {eyebrow}
           </span>
         )}
@@ -32,16 +32,16 @@ export default function PageHeader({
           {title}
         </h1>
         {subtitle && (
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white">
             {subtitle}
           </p>
         )}
-        <nav className="mt-8 flex items-center justify-center gap-2 text-sm text-white/60">
+        <nav className="mt-8 flex items-center justify-center gap-2 text-base text-white/60">
           <a
             href={
               dict ? (dict.pageHeader.home === "الرئيسية" ? "/ar" : "/en") : "/"
             }
-            className="transition-colors hover:text-white"
+            className="text-white hover:text-white"
           >
             {dict ? dict.pageHeader.home : "Home"}
           </a>

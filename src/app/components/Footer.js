@@ -15,6 +15,9 @@ const socials = [
   { Icon: Instagram, label: "Instagram" },
 ];
 
+// tel: needs a clean number (digits + leading +), no spaces
+const telHref = (v) => `tel:${v.replace(/[^\d+]/g, "")}`;
+
 export default function Footer({ dict, lang }) {
   const t = dict.footer;
 
@@ -98,23 +101,33 @@ export default function Footer({ dict, lang }) {
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
                 <span>{t.address}</span>
               </li>
-              <li>
-                <a
-                  href="mailto:partners@renadtrading.com"
-                  className="flex items-center gap-3 text-white/70 transition-colors duration-200 hover:text-cta"
-                >
-                  <Mail className="h-4 w-4 shrink-0 text-cta" />
-                  partners@renadtrading.com
-                </a>
+              <li className="flex gap-3 text-white/70">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
+                <span className="flex min-w-0 flex-col gap-1">
+                  {t.emails.map((email) => (
+                    <a
+                      key={email}
+                      href={`mailto:${email}`}
+                      className="wrap-break-word transition-colors duration-200 hover:text-cta"
+                    >
+                      <bdi dir="ltr">{email}</bdi>
+                    </a>
+                  ))}
+                </span>
               </li>
-              <li>
-                <a
-                  href="tel:+97140000000"
-                  className="flex items-center gap-3 text-white/70 transition-colors duration-200 hover:text-cta"
-                >
-                  <Phone className="h-4 w-4 shrink-0 text-cta" />
-                  <bdi dir="ltr">+971 4 000 0000</bdi>
-                </a>
+              <li className="flex gap-3 text-white/70">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-cta" />
+                <span className="flex flex-col gap-1">
+                  {t.phones.map((phone) => (
+                    <a
+                      key={phone}
+                      href={telHref(phone)}
+                      className="transition-colors duration-200 hover:text-cta"
+                    >
+                      <bdi dir="ltr">{phone}</bdi>
+                    </a>
+                  ))}
+                </span>
               </li>
             </ul>
           </div>

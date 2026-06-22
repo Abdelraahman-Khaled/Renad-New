@@ -316,7 +316,7 @@
       {
         "heading": "تواصل معنا",
         "body": [
-          "إذا كان لديك أي استفسار بشأن سياسة الخصوصية هذه، يُرجى التواصل معنا عبر partners@renadtrading.com."
+          "إذا كان لديك أي استفسار بشأن سياسة الخصوصية هذه، يُرجى التواصل معنا عبر wael.almazloum@renadintl.com."
         ]
       }
     ]
@@ -389,7 +389,7 @@
       {
         "heading": "تواصل معنا",
         "body": [
-          "إذا كان لديك أي استفسار بشأن شروط الخدمة هذه، يُرجى التواصل معنا عبر partners@renadtrading.com."
+          "إذا كان لديك أي استفسار بشأن شروط الخدمة هذه، يُرجى التواصل معنا عبر wael.almazloum@renadintl.com."
         ]
       }
     ]
@@ -429,7 +429,9 @@
       "عُمان"
     ],
     "contactTitle": "تواصل معنا",
-    "address": "واحة دبي للسيليكون، دبي، الإمارات العربية المتحدة",
+    "address": "IFZA Properties، DSO-IFZA، واحة دبي للسيليكون، دبي، الإمارات العربية المتحدة",
+    "emails": ["wael.almazloum@renadintl.com", "ayman.almazloum@renadintl.com"],
+    "phones": ["+966 50 548 8310", "+971 56 107 7490", "+966 50 222 5655"],
     "copyright": "© 2026 ريناد للتجارة الدولية FZCO. جميع الحقوق محفوظة.",
     "privacy": "سياسة الخصوصية",
     "terms": "شروط الخدمة"
@@ -483,16 +485,19 @@
     "detailsHeading": "تواصل معنا",
     "details": [
       {
+        "type": "address",
         "label": "المكتب",
-        "value": "واحة دبي للسيليكون، دبي، الإمارات العربية المتحدة"
+        "value": "IFZA Properties، DSO-IFZA، واحة دبي للسيليكون، دبي، الإمارات العربية المتحدة"
       },
       {
-        "label": "البريد الإلكتروني",
-        "value": "partners@renadtrading.com"
-      },
-      {
+        "type": "phone",
         "label": "الهاتف",
-        "value": "+971 4 000 0000"
+        "values": ["+966 50 548 8310", "+971 56 107 7490", "+966 50 222 5655"]
+      },
+      {
+        "type": "email",
+        "label": "البريد الإلكتروني",
+        "values": ["wael.almazloum@renadintl.com", "ayman.almazloum@renadintl.com"]
       }
     ],
     "followUs": "تابعنا",

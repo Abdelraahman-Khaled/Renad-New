@@ -49,20 +49,17 @@ export default async function AboutPage({ params }) {
           />
           <div className="absolute inset-0 bg-linear-to-b from-primary-dark to-transparent" />
           <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-36 text-center lg:px-10 lg:pb-28 lg:pt-44">
-            <span className="text-base font-semibold uppercase tracking-[0.2em] text-cta">
+            <span className="text-lg font-semibold uppercase tracking-[0.2em] text-cta">
               {t.eyebrow}
             </span>
             <h1 className="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
               {t.heading}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white">
               {t.subtitle}
             </p>
-            <nav className="mt-8 flex items-center justify-center gap-2 text-sm text-white/60">
-              <a
-                href={`/${lang}`}
-                className="transition-colors hover:text-white"
-              >
+            <nav className="mt-8 flex items-center justify-center gap-2 text-base ">
+              <a href={`/${lang}`} className="text-white hover:text-white">
                 {dict.pageHeader.home}
               </a>
               <span>/</span>

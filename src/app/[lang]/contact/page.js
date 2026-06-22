@@ -16,8 +16,12 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const detailIcons = [MapPin, Mail, Phone];
-const detailHrefs = [null, "mailto:partners@renadtrading.com", "tel:+97140000000"];
+const detailIconByType = { address: MapPin, email: Mail, phone: Phone };
+
+// tel: needs a clean number (digits + leading +), no spaces
+const telHref = (v) => `tel:${v.replace(/[^\d+]/g, "")}`;
+const valueHref = (type, v) =>
+  type === "phone" ? telHref(v) : type === "email" ? `mailto:${v}` : null;
 
 const socials = [
   { Icon: Linkedin, label: "LinkedIn" },
@@ -67,9 +71,9 @@ export default async function ContactPage({ params }) {
                   {t.detailsHeading}
                 </h3>
                 <ul className="mt-6 space-y-5">
-                  {t.details.map((detail, i) => {
-                    const Icon = detailIcons[i];
-                    const href = detailHrefs[i];
+                  {t.details.map((detail) => {
+                    const Icon = detailIconByType[detail.type] ?? MapPin;
+                    const values = detail.values ?? [detail.value];
                     return (
                       <li key={detail.label} className="flex items-start gap-4">
                         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
@@ -79,19 +83,28 @@ export default async function ContactPage({ params }) {
                           <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400">
                             {detail.label}
                           </span>
-                          {href ? (
-                            <a
-                              href={href}
-                              className="font-display text-base font-semibold text-slate-800 transition-colors hover:text-primary"
-                            >
-                              {/* Phone/email read left-to-right even inside the RTL card */}
-                              <bdi dir="ltr">{detail.value}</bdi>
-                            </a>
-                          ) : (
-                            <span className="font-display text-base font-semibold text-slate-800">
-                              {detail.value}
-                            </span>
-                          )}
+                          <span className="mt-0.5 flex flex-col gap-0.5">
+                            {values.map((value) => {
+                              const href = valueHref(detail.type, value);
+                              // Phone/email read left-to-right even inside the RTL card
+                              return href ? (
+                                <a
+                                  key={value}
+                                  href={href}
+                                  className="font-display text-base font-semibold text-slate-800 transition-colors hover:text-primary"
+                                >
+                                  <bdi dir="ltr">{value}</bdi>
+                                </a>
+                              ) : (
+                                <span
+                                  key={value}
+                                  className="font-display text-base font-semibold text-slate-800"
+                                >
+                                  {value}
+                                </span>
+                              );
+                            })}
+                          </span>
                         </span>
                       </li>
                     );

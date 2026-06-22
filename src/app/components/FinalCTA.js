@@ -33,7 +33,7 @@ export default function FinalCTA({ dict }) {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="mailto:partners@renadtrading.com"
+                href="mailto:wael.almazloum@renadintl.com"
                 className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-cta px-8 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cta-dark"
               >
                 {t.cta}

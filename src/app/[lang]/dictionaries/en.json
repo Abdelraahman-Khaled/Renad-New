@@ -316,7 +316,7 @@
       {
         "heading": "Contact Us",
         "body": [
-          "If you have any questions about this Privacy Policy, please contact us at partners@renadtrading.com."
+          "If you have any questions about this Privacy Policy, please contact us at wael.almazloum@renadintl.com."
         ]
       }
     ]
@@ -389,7 +389,7 @@
       {
         "heading": "Contact Us",
         "body": [
-          "If you have any questions about these Terms of Service, please contact us at partners@renadtrading.com."
+          "If you have any questions about these Terms of Service, please contact us at wael.almazloum@renadintl.com."
         ]
       }
     ]
@@ -429,7 +429,9 @@
       "Oman"
     ],
     "contactTitle": "Get in Touch",
-    "address": "Dubai Silicon Oasis, Dubai, United Arab Emirates",
+    "address": "IFZA Properties, DSO-IFZA, Dubai Silicon Oasis, Dubai, United Arab Emirates",
+    "emails": ["wael.almazloum@renadintl.com", "ayman.almazloum@renadintl.com"],
+    "phones": ["+966 50 548 8310", "+971 56 107 7490", "+966 50 222 5655"],
     "copyright": "© 2026 Renad International Trading FZCO. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
@@ -483,16 +485,19 @@
     "detailsHeading": "Get in touch",
     "details": [
       {
+        "type": "address",
         "label": "Office",
-        "value": "Dubai Silicon Oasis, Dubai, United Arab Emirates"
+        "value": "IFZA Properties, DSO-IFZA, Dubai Silicon Oasis, Dubai, United Arab Emirates"
       },
       {
-        "label": "Email",
-        "value": "partners@renadtrading.com"
-      },
-      {
+        "type": "phone",
         "label": "Phone",
-        "value": "+971 4 000 0000"
+        "values": ["+966 50 548 8310", "+971 56 107 7490", "+966 50 222 5655"]
+      },
+      {
+        "type": "email",
+        "label": "Email",
+        "values": ["wael.almazloum@renadintl.com", "ayman.almazloum@renadintl.com"]
       }
     ],
     "followUs": "Follow us",
