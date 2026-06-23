@@ -70,7 +70,7 @@ export default function Progress({ dict }) {
   return (
     <section id="about" className="relative overflow-hidden bg-white">
       <SideDecor variant="b" />
-      <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-16 lg:px-10">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-start gap-12 px-6 py-18 lg:grid-cols-2 lg:gap-16 lg:px-10">
         {/* Left: heading + stat cards */}
         <div>
           <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
@@ -115,7 +115,7 @@ export default function Progress({ dict }) {
 
         {/* Right: description + image collage */}
         <div className="flex flex-col gap-8">
-          <p className="max-w-md text-base leading-relaxed text-slate-500 lg:ms-auto lg:text-end">
+          <p className="max-w-md text-base leading-relaxed text-slate-700  lg:text-start">
             {t.description}
           </p>
 

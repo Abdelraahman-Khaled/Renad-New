@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import SideDecor from "./Decor";
 import { useLang } from "../[lang]/LangContext";
 
@@ -20,32 +20,78 @@ function Chevron({ dir = "right", className }) {
   );
 }
 
-const colors = ["bg-primary", "bg-cta", "bg-primary-dark", "bg-cta", "bg-primary"];
-const initials = ["BP", "PL", "CD", "EM", "MD"];
+const colors = ["bg-primary", "bg-cta", "bg-primary-dark"];
+
+// Derive avatar initials from the first two words of the name so the carousel
+// scales to any number of testimonials (works for both EN and AR names).
+function getInitials(name = "") {
+  return name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((word) => word[0] || "")
+    .join("");
+}
 
 export default function Testimonials() {
   const { dict } = useLang();
   const t = dict.testimonials;
   const trackRef = useRef(null);
   const [active, setActive] = useState(0);
+  const [pageCount, setPageCount] = useState(1);
   const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef(null);
+
+  const itemCount = t.items.length;
+
+  // The track shows several cards per view (3 on desktop, 2 on tablet, 1 on
+  // mobile), so the number of reachable scroll positions is fewer than the
+  // number of items. Derive the dot count from how many cards fit per view.
+  const computePageCount = useCallback(() => {
+    const track = trackRef.current;
+    if (!track || track.children.length === 0) return;
+    const cardWidth = track.children[0].getBoundingClientRect().width;
+    if (cardWidth === 0) return;
+    const styles = window.getComputedStyle(track);
+    const gap = parseFloat(styles.columnGap || styles.gap) || 0;
+    const perView = Math.max(1, Math.round(track.clientWidth / (cardWidth + gap)));
+    const pages = Math.max(1, itemCount - perView + 1);
+    setPageCount(pages);
+    setActive((a) => Math.min(a, pages - 1));
+  }, [itemCount]);
+
+  useEffect(() => {
+    computePageCount();
+    const track = trackRef.current;
+    if (!track) return;
+    const ro = new ResizeObserver(computePageCount);
+    ro.observe(track);
+    return () => ro.disconnect();
+  }, [computePageCount]);
+
+  // Inline-start edge: left in LTR, right in RTL. We align cards to it and
+  // measure distance from it so the carousel works in both directions.
+  const isRTL = (track) => window.getComputedStyle(track).direction === "rtl";
+  const leadingEdge = (rect, rtl) => (rtl ? rect.right : rect.left);
 
   const scrollToIdx = (i) => {
     const track = trackRef.current;
     if (!track) return;
-    const idx = Math.max(0, Math.min(t.items.length - 1, i));
+    const idx = Math.max(0, Math.min(pageCount - 1, i));
     const card = track.children[idx];
     if (card) {
       track.style.scrollSnapType = "none";
       isScrollingRef.current = true;
 
-      const targetScroll =
-        card.getBoundingClientRect().left -
-        track.getBoundingClientRect().left +
-        track.scrollLeft;
+      const rtl = isRTL(track);
+      // Relative delta to bring the card's leading edge to the track's. After a
+      // scroll, an element's client position shifts by -delta in both LTR and
+      // RTL, so scrollBy works the same way regardless of scrollLeft's sign.
+      const delta =
+        leadingEdge(card.getBoundingClientRect(), rtl) -
+        leadingEdge(track.getBoundingClientRect(), rtl);
 
-      track.scrollTo({ left: targetScroll, behavior: "smooth" });
+      track.scrollBy({ left: delta, behavior: "smooth" });
       setActive(idx);
 
       if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
@@ -62,17 +108,25 @@ export default function Testimonials() {
     if (!track) return;
     const children = Array.from(track.children);
     if (children.length === 0) return;
-    const trackLeft = track.getBoundingClientRect().left;
+    // When the track is scrolled to the end, the trailing cards can't reach the
+    // leading edge — pin the last dot instead. Math.abs handles RTL scrollLeft.
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    if (Math.abs(track.scrollLeft) >= maxScroll - 2) {
+      setActive(pageCount - 1);
+      return;
+    }
+    const rtl = isRTL(track);
+    const trackEdge = leadingEdge(track.getBoundingClientRect(), rtl);
     let closestIdx = 0;
     let minDiff = Infinity;
     children.forEach((child, idx) => {
-      const diff = Math.abs(child.getBoundingClientRect().left - trackLeft);
+      const diff = Math.abs(leadingEdge(child.getBoundingClientRect(), rtl) - trackEdge);
       if (diff < minDiff) {
         minDiff = diff;
         closestIdx = idx;
       }
     });
-    setActive(closestIdx);
+    setActive(Math.min(closestIdx, pageCount - 1));
   };
 
   return (
@@ -128,9 +182,9 @@ export default function Testimonials() {
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-4 border-t border-slate-100 pt-5">
                 <span
-                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold text-white ${colors[i]}`}
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold text-white ${colors[i % colors.length]}`}
                 >
-                  {initials[i]}
+                  {getInitials(item.name)}
                 </span>
                 <span>
                   <p className="font-display text-sm font-bold text-slate-900">
@@ -145,7 +199,7 @@ export default function Testimonials() {
 
         {/* Dots */}
         <div className="mt-8 flex justify-center gap-2.5">
-          {t.items.map((_, i) => (
+          {Array.from({ length: pageCount }).map((_, i) => (
             <button
               key={i}
               type="button"

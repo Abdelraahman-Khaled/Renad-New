@@ -55,7 +55,7 @@ export default async function AboutPage({ params }) {
             <h1 className="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
               {t.heading}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white font-medium">
               {t.subtitle}
             </p>
             <nav className="mt-8 flex items-center justify-center gap-2 text-base ">
@@ -156,7 +156,7 @@ export default async function AboutPage({ params }) {
         <Pillars dict={dict} />
         <VisionMission dict={dict} />
         {faqs.length > 0 && <Faqs faqs={faqs} dict={dict} />}
-        <FinalCTA dict={dict} />
+        <FinalCTA dict={dict} lang={lang} />
       </main>
 
       <Footer dict={dict} lang={lang} />

@@ -1,6 +1,15 @@
 function Eye({ className }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className={className}
+    >
       <path d="M2.5 12S5.5 5.5 12 5.5 21.5 12 21.5 12 18.5 18.5 12 18.5 2.5 12 2.5 12Z" />
       <circle cx="12" cy="12" r="3" />
     </svg>
@@ -9,7 +18,16 @@ function Eye({ className }) {
 
 function Target({ className }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className={className}
+    >
       <circle cx="12" cy="12" r="9" />
       <circle cx="12" cy="12" r="5" />
       <circle cx="12" cy="12" r="1.5" />
@@ -29,13 +47,14 @@ export default function VisionMission({ dict }) {
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
-            backgroundImage: "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
             backgroundSize: "26px 26px",
           }}
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-28 lg:px-10">
+      <div className="relative mx-auto max-w-7xl px-6 pt-18 pb-28 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-base font-semibold uppercase tracking-[0.22em] text-cta">
             {t.eyebrow}

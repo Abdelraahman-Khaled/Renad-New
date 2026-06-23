@@ -46,6 +46,7 @@ export default async function ContactPage({ params }) {
           subtitle={t.subtitle}
           crumb={t.breadcrumb}
           dict={dict}
+          lang={lang}
           image="/images/contact-hero.png"
         />
 

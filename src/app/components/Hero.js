@@ -21,7 +21,7 @@ function ArrowUpRight({ className }) {
 }
 
 export default function Hero() {
-  const { dict } = useLang();
+  const { dict, lang } = useLang();
   const slides = dict.hero.slides;
   const [active, setActive] = useState(0);
   const n = slides.length;
@@ -72,7 +72,7 @@ export default function Hero() {
               </span>
 
               <div className="mt-4 flex flex-col gap-6 sm:mt-5 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
-                <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl sm:leading-none md:text-6xl lg:text-7xl lg:leading-[0.98]">
+                <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.05] text-white sm:text-4xl sm:leading-none md:text-5xl lg:text-6xl lg:leading-[1.2]">
                   {s.pre} <span className="text-cta">{s.hi}</span>
                 </h1>
 
@@ -81,7 +81,7 @@ export default function Hero() {
                     {s.text}
                   </p>
                   <a
-                    href="#brands"
+                    href={`/${lang}/products`}
                     className="group mt-5 inline-flex items-center gap-2 rounded-full bg-white py-1.5 ps-6 pe-1.5 text-sm font-semibold text-primary-dark transition-colors duration-200 hover:bg-cyan-50"
                   >
                     {dict.hero.ourBrands}

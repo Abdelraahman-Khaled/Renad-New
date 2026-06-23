@@ -36,6 +36,7 @@ export default async function BlogPage({ params }) {
           subtitle={t.subtitle}
           crumb={t.breadcrumb}
           dict={dict}
+          lang={lang}
           image="/images/blog-hero.png"
         />
 
@@ -84,7 +85,7 @@ export default async function BlogPage({ params }) {
           </div>
         </section>
 
-        <FinalCTA dict={dict} />
+        <FinalCTA dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />
     </div>

@@ -147,7 +147,7 @@ export default async function BlogPostPage({ params }) {
           </section>
         )}
 
-        <FinalCTA dict={dict} />
+        <FinalCTA dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />
     </div>

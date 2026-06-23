@@ -29,14 +29,14 @@ export default async function Home({ params }) {
         <Progress dict={dict} />
         <Pillars dict={dict} />
         {/* <BrandShowcase /> */}
-        <ProductCategories dict={dict} />
+        <ProductCategories dict={dict} lang={lang} />
         <Marquee dict={dict} />
         <HowWeWork dict={dict} />
         <VisionMission dict={dict} />
         <LatestNews dict={dict} lang={lang} blogs={blogs} />
         <Testimonials />
         <Partners />
-        <FinalCTA dict={dict} />
+        <FinalCTA dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />
     </div>

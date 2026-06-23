@@ -34,10 +34,11 @@ export default async function ProductsPage({ params }) {
           subtitle={t.subtitle}
           crumb={t.breadcrumb}
           dict={dict}
+          lang={lang}
           image="/images/products-hero.png"
         />
         <ProductsExplorer products={products} />
-        <FinalCTA dict={dict} />
+        <FinalCTA dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />
     </div>

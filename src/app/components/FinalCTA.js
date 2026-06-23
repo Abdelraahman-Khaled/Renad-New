@@ -1,12 +1,12 @@
 import { ArrowRight } from "./icons";
 
-export default function FinalCTA({ dict }) {
+export default function FinalCTA({ dict, lang }) {
   const t = dict.finalCTA;
 
   return (
     <section id="contact" className="bg-white">
       <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-linear-to-br from-primary-dark via-primary to-primary px-8 py-20 text-center shadow-lift sm:px-12 lg:py-28">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-linear-to-br from-primary-dark via-primary to-primary px-8 py-20 text-center shadow-lift sm:px-12 lg:pb-28 pt-18">
           {/* decorative accents */}
           <div className="pointer-events-none absolute inset-0" aria-hidden>
             <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-white/15 blur-3xl" />
@@ -15,7 +15,8 @@ export default function FinalCTA({ dict }) {
             <div
               className="absolute inset-0 opacity-[0.06]"
               style={{
-                backgroundImage: "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
+                backgroundImage:
+                  "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
                 backgroundSize: "24px 24px",
               }}
             />
@@ -33,14 +34,14 @@ export default function FinalCTA({ dict }) {
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="mailto:wael.almazloum@renadintl.com"
+                href="/contact"
                 className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-cta px-8 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-cta-dark"
               >
                 {t.cta}
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
               </a>
               <a
-                href="#brands"
+                href={`/${lang}/products`}
                 className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/30 px-8 py-4 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/10"
               >
                 {t.secondary}

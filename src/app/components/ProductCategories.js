@@ -1,7 +1,13 @@
+import Link from "next/link";
 import { PaperMintsMark, TungMark } from "./BrandMark";
 import SideDecor from "./Decor";
+import NotifyCard from "./NotifyCard";
+import { ArrowRight } from "./icons";
 
-export default function ProductCategories({ dict }) {
+const cardClass =
+  "group flex flex-col rounded-3xl border border-slate-100 bg-white p-8 shadow-card transition-shadow duration-300 hover:shadow-lift";
+
+export default function ProductCategories({ dict, lang }) {
   const t = dict.productCategories;
 
   return (
@@ -23,27 +29,39 @@ export default function ProductCategories({ dict }) {
         {/* Cards */}
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {t.categories.map(({ num, title, desc }, i) => {
-            const hasBrands = i === 0;
-            const isSoon = i > 0;
-            return (
-              <div
-                key={num}
-                className="group flex flex-col rounded-3xl border border-slate-100 bg-white p-8 shadow-card transition-shadow duration-300 hover:shadow-lift"
-              >
-                <span className="font-display text-3xl font-bold text-primary">
-                  {num}
-                </span>
+            const isFirst = i === 0;
+
+            const body = (
+              <>
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-3xl font-bold text-primary">
+                    {num}
+                  </span>
+                  {isFirst && (
+                    <ArrowRight className="h-5 w-5 text-primary transition-transform duration-200 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+                  )}
+                </div>
                 <h3 className="mt-5 font-display text-xl font-bold text-slate-900">
                   {title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-500">
                   {desc}
                 </p>
+              </>
+            );
 
-                {/* Footer pinned to bottom */}
-                <div className="mt-auto pt-8">
-                  <div className="border-t border-slate-100 pt-5">
-                    {hasBrands ? (
+            // Card 1 links straight to the products catalogue.
+            if (isFirst) {
+              return (
+                <Link
+                  key={num}
+                  href={`/${lang}/products`}
+                  aria-label={t.browse}
+                  className={cardClass}
+                >
+                  {body}
+                  <div className="mt-auto pt-8">
+                    <div className="border-t border-slate-100 pt-5">
                       <div className="flex items-center justify-between gap-3">
                         <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                           {t.brands}
@@ -54,16 +72,23 @@ export default function ProductCategories({ dict }) {
                           <TungMark className="text-sm" />
                         </span>
                       </div>
-                    ) : (
-                      isSoon && (
-                        <span className="inline-flex rounded-full bg-primary/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-primary-dark">
-                          {t.comingSoon}
-                        </span>
-                      )
-                    )}
+                    </div>
                   </div>
-                </div>
-              </div>
+                </Link>
+              );
+            }
+
+            // Cards 2 & 3 are coming soon: clicking the card reveals an email
+            // field to notify the visitor at launch.
+            return (
+              <NotifyCard
+                key={num}
+                title={title}
+                comingSoon={t.comingSoon}
+                notify={t.notify}
+              >
+                {body}
+              </NotifyCard>
             );
           })}
         </div>

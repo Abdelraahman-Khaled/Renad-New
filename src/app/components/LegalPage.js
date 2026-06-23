@@ -17,6 +17,7 @@ export default function LegalPage({ dict, lang, t }) {
           subtitle={t.subtitle}
           crumb={t.breadcrumb}
           dict={dict}
+          lang={lang}
         />
 
         <section className="bg-white">
@@ -46,7 +47,7 @@ export default function LegalPage({ dict, lang, t }) {
           </div>
         </section>
 
-        <FinalCTA dict={dict} />
+        <FinalCTA dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />
     </div>

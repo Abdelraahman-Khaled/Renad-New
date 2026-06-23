@@ -9,6 +9,7 @@ export default function PageHeader({
   subtitle,
   crumb,
   dict,
+  lang,
   image,
 }) {
   return (
@@ -32,15 +33,13 @@ export default function PageHeader({
           {title}
         </h1>
         {subtitle && (
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white font-medium">
             {subtitle}
           </p>
         )}
         <nav className="mt-8 flex items-center justify-center gap-2 text-base text-white/60">
           <a
-            href={
-              dict ? (dict.pageHeader.home === "الرئيسية" ? "/ar" : "/en") : "/"
-            }
+            href={lang ? `/${lang}` : "/"}
             className="text-white hover:text-white"
           >
             {dict ? dict.pageHeader.home : "Home"}

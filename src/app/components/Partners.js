@@ -71,23 +71,23 @@ const getFavicon = (domain) =>
   `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
 
 const partners = [
-  { en: "Abdullah Bawazir", ar: "عبد الله باوزير", Icon: Store, logoUrl: getFavicon("abawazir.net"), category: "retail" },
-  { en: "Nice One", ar: "نايس ون", Icon: MonitorSmartphoneIcon, logoUrl: getFavicon("https://niceonesa.com/en"), category: "retail" },
-  { en: "Whites Pharmacies", ar: "صيدليات وايتس", Icon: ActivityIcon, logoUrl: getFavicon("whites.net"), category: "pharmacy" },
-  { en: "Nahdi Pharmacies", ar: "صيدليات النهدي", Icon: HeartPulseIcon, logoUrl: getFavicon("nahdionline.com"), category: "pharmacy" },
-  { en: "Al Dawaa Pharmacies", ar: "صيدليات الدواء", Icon: PillIcon, logoUrl: getFavicon("https://www.al-dawaa.com/ar/"), category: "pharmacy" },
-  { en: "Dar Al Amirat", ar: "دار الإمارات", Icon: ShoppingBagIcon, logoUrl: getFavicon("https://daralamirat.com.sa/ar/"), category: "retail" },
-  { en: "Makhazen Al Enaya", ar: "مخازن العناية", Icon: Store, logoUrl: getFavicon("makhazenalenaya.sa"), category: "retail" },
-  { en: "Adam Pharmacies", ar: "صيدليات آدم", Icon: HeartPulseIcon, logoUrl: getFavicon("adamonline.com"), category: "pharmacy" },
-  { en: "Ocean Pharmacies", ar: "صيدليات أوشن", Icon: PillIcon, logoUrl: getFavicon("oceanpharmacy.sa"), category: "pharmacy" },
-  { en: "Vaneer Al Kharj", ar: "فانير الخرج", Icon: ShoppingBagIcon, logoUrl: getFavicon("vaneersa.com"), category: "retail" },
-  { en: "Bahr Al Alamiah", ar: "بحر العالمية", Icon: Store, logoUrl: getFavicon("bader-intl.com"), category: "retail" },
-  { en: "SASCO Stations", ar: "محطات ساسكو", Icon: FuelIcon, logoUrl: getFavicon("sasco.com.sa"), category: "convenience" },
-  { en: "Nojoom Al Batra", ar: "نجوم البتراء", Icon: MapPin, logoUrl: getFavicon("petrastars.com"), category: "pharmacy" },
-  { en: "NMA Dammam", ar: "نما الدمام", Icon: Building2Icon, logoUrl: getFavicon("nmastores.com"), category: "retail" },
-  { en: "Trolley", ar: "ترولي", Icon: ShoppingCartIcon, logoUrl: getFavicon("trolley.com.sa"), category: "convenience" },
-  { en: "Outlet Stores", ar: "معارض اوتلت", Icon: Store, logoUrl: "", category: "retail" },
-  { en: "Orange Pharmacies", ar: "صيدليات اورانج", Icon: ActivityIcon, logoUrl: getFavicon("https://orangepharmacy.sa/"), category: "pharmacy" },
+  { en: "Abdullah Bawazir", ar: "عبد الله باوزير", Icon: Store, logoUrl: getFavicon("abawazir.net"), url: "https://abawazir.net", category: "retail" },
+  { en: "Nice One", ar: "نايس ون", Icon: MonitorSmartphoneIcon, logoUrl: getFavicon("niceonesa.com"), url: "https://niceonesa.com/en", category: "retail" },
+  { en: "Whites Pharmacies", ar: "صيدليات وايتس", Icon: ActivityIcon, logoUrl: getFavicon("whites.net"), url: "https://whites.net", category: "pharmacy" },
+  { en: "Nahdi Pharmacies", ar: "صيدليات النهدي", Icon: HeartPulseIcon, logoUrl: getFavicon("nahdionline.com"), url: "https://www.nahdionline.com", category: "pharmacy" },
+  { en: "Al Dawaa Pharmacies", ar: "صيدليات الدواء", Icon: PillIcon, logoUrl: getFavicon("al-dawaa.com"), url: "https://www.al-dawaa.com/ar/", category: "pharmacy" },
+  { en: "Dar Al Amirat", ar: "دار الإمارات", Icon: ShoppingBagIcon, logoUrl: getFavicon("daralamirat.com.sa"), url: "https://daralamirat.com.sa/ar/", category: "retail" },
+  { en: "Makhazen Al Enaya", ar: "مخازن العناية", Icon: Store, logoUrl: getFavicon("makhazenalenaya.sa"), url: "https://makhazenalenaya.sa", category: "retail" },
+  { en: "Adam Pharmacies", ar: "صيدليات آدم", Icon: HeartPulseIcon, logoUrl: getFavicon("adamonline.com"), url: "https://adamonline.com", category: "pharmacy" },
+  { en: "Ocean Pharmacies", ar: "صيدليات أوشن", Icon: PillIcon, logoUrl: getFavicon("oceanpharmacy.sa"), url: "https://oceanpharmacy.sa", category: "pharmacy" },
+  { en: "Vaneer Al Kharj", ar: "فانير الخرج", Icon: ShoppingBagIcon, logoUrl: getFavicon("vaneersa.com"), url: "https://vaneersa.com", category: "retail" },
+  { en: "Bahr Al Alamiah", ar: "بحر العالمية", Icon: Store, logoUrl: getFavicon("bader-intl.com"), url: "https://bader-intl.com", category: "retail" },
+  { en: "SASCO Stations", ar: "محطات ساسكو", Icon: FuelIcon, logoUrl: getFavicon("sasco.com.sa"), url: "https://sasco.com.sa", category: "convenience" },
+  { en: "Nojoom Al Batra", ar: "نجوم البتراء", Icon: MapPin, logoUrl: getFavicon("petrastars.com"), url: "https://petrastars.com", category: "pharmacy" },
+  { en: "NMA Dammam", ar: "نما الدمام", Icon: Building2Icon, logoUrl: getFavicon("nmastores.com"), url: "https://nmastores.com", category: "retail" },
+  { en: "Trolley", ar: "ترولي", Icon: ShoppingCartIcon, logoUrl: getFavicon("trolley.com.sa"), url: "https://trolley.com.sa", category: "convenience" },
+  { en: "Outlet Stores", ar: "معارض اوتلت", Icon: Store, logoUrl: "", url: "", category: "retail" },
+  { en: "Orange Pharmacies", ar: "صيدليات اورانج", Icon: ActivityIcon, logoUrl: getFavicon("orangepharmacy.sa"), url: "https://orangepharmacy.sa", category: "pharmacy" },
 ];
 
 function PartnerLogo({ partner }) {
@@ -193,33 +193,47 @@ export default function Partners() {
 
         {/* Logo grid */}
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {filteredPartners.map((p) => (
-            <div
-              key={p.en}
-              className="group relative flex flex-col items-center justify-center gap-4 rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-card"
-            >
-              {/* Category indicator pill */}
-              <span className="absolute end-3 top-3 scale-90 rounded-full bg-slate-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-slate-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                {t.categoryLabels[p.category]}
-              </span>
+          {filteredPartners.map((p) => {
+            const Wrapper = p.url ? "a" : "div";
+            const wrapperProps = p.url
+              ? {
+                  href: p.url,
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                  "aria-label": p.en,
+                }
+              : {};
+            return (
+              <Wrapper
+                key={p.en}
+                {...wrapperProps}
+                className="group relative flex flex-col items-center justify-center gap-4 rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-card"
+              >
+                {/* Category indicator pill */}
+                <span className="absolute end-3 top-3 scale-90 rounded-full bg-slate-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-slate-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  {t.categoryLabels[p.category]}
+                </span>
 
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-slate-50/50 p-2.5 transition-colors duration-300 group-hover:bg-primary/5">
-                <PartnerLogo partner={p} />
-              </div>
-              <div className="flex flex-col gap-0.5">
-                <span className="font-display text-xs font-bold text-slate-700 transition-colors duration-300 group-hover:text-primary">
-                  {isAr ? p.ar : p.en}
-                </span>
-                <span
-                  dir={isAr ? "ltr" : "rtl"}
-                  lang={isAr ? "en" : "ar"}
-                  className="text-[11px] text-slate-400"
-                >
-                  {isAr ? p.en : p.ar}
-                </span>
-              </div>
-            </div>
-          ))}
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-slate-50/50 p-2.5 transition-colors duration-300 group-hover:bg-primary/5">
+                  <PartnerLogo partner={p} />
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <span className="font-display text-xs font-bold text-slate-700 transition-colors duration-300 group-hover:text-primary">
+                    {isAr ? p.ar : p.en}
+                  </span>
+                  {isAr && (
+                    <span
+                      dir="ltr"
+                      lang="en"
+                      className="text-[11px] text-slate-400"
+                    >
+                      {p.en}
+                    </span>
+                  )}
+                </div>
+              </Wrapper>
+            );
+          })}
 
           {/* Empty search state */}
           {filteredPartners.length === 0 && (

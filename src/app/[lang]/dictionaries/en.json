@@ -17,7 +17,7 @@
         "tag": "International Distribution · GCC",
         "pre": "Your Trusted Gateway",
         "hi": "to GCC Leading Markets",
-        "text": "At Renad, we don't just move products, we build partnerships. We guide your consumer brands onto the shelves of the GCC's premier retailers and pharmacies, backed by seamless logistics and deep market expertise."
+        "text": "At Renad, we don't just bring  products, we build partnerships. We guide your consumer brands into  the shelves of the GCC's premier retailers and pharmacies, backed by seamless logistics and deep market expertise."
       },
       {
         "tag": "Brand Spotlight · Breath Care",
@@ -89,6 +89,15 @@
     "headingSuffix": "of Daily Essentials",
     "brands": "Brands",
     "comingSoon": "Coming Soon",
+    "browse": "Browse products",
+    "notify": {
+      "cta": "Notify me",
+      "subtitle": "Leave your email and we'll let you know the moment it launches.",
+      "placeholder": "Your email address",
+      "submit": "Notify me",
+      "success": "Done! We'll email you the moment it launches.",
+      "close": "Close"
+    },
     "categories": [
       {
         "num": "01",
@@ -117,12 +126,12 @@
       "Oman"
     ],
     "row2": [
-      "PaperMints",
-      "TUNG",
-      "Distribution",
-      "Brand Growth",
       "Market Access",
-      "GCC"
+      "Brand Growth",
+      "Regulatory Compliance",
+      "Distribution Excellence",
+      "Regional Relationships",
+      "Logistics Solutions"
     ]
   },
   "howWeWork": {
@@ -224,6 +233,26 @@
         "quote": "Clear reporting, on-time delivery, and a team that knows every buyer. Exactly the partner a growing brand needs in the Gulf.",
         "name": "Managing Director",
         "role": "Regional Distribution Partner"
+      },
+      {
+        "quote": "From customs clearance to last-mile delivery, their supply chain just works. We finally have visibility into stock at every point in the region.",
+        "name": "Supply Chain Head",
+        "role": "International Beverage Brand"
+      },
+      {
+        "quote": "The trade marketing support was the difference. In-store activations, promoter teams, and shopper insights we could never have run remotely.",
+        "name": "Marketing Director",
+        "role": "Global Snacks Producer"
+      },
+      {
+        "quote": "They opened modern trade and e-commerce channels in parallel. Our online listings went live the same quarter as our retail rollout.",
+        "name": "E-Commerce Lead",
+        "role": "Beauty & Cosmetics Brand"
+      },
+      {
+        "quote": "Product registration across the GCC used to terrify us. Renad handled every dossier and approval, and kept us informed the whole way.",
+        "name": "Regulatory Affairs Manager",
+        "role": "Nutrition & Supplements Brand"
       }
     ]
   },
