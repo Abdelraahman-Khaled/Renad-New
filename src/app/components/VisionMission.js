@@ -39,7 +39,7 @@ export default function VisionMission({ dict }) {
   const t = dict.visionMission;
 
   return (
-    <section className="relative overflow-hidden bg-primary-dark mb-20">
+    <section className="relative overflow-hidden bg-primary-dark my-12">
       {/* ambient accents */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute -left-32 top-0 h-96 w-96 rounded-full bg-primary/30 blur-3xl" />
@@ -54,7 +54,7 @@ export default function VisionMission({ dict }) {
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-18 pb-28 lg:px-10">
+      <div className="relative mx-auto max-w-7xl px-6 py-12 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-base font-semibold uppercase tracking-[0.22em] text-cta">
             {t.eyebrow}

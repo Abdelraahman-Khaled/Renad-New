@@ -15,7 +15,7 @@ export default function LatestNews({ dict, lang, blogs = [] }) {
   return (
     <section id="news" className="relative overflow-hidden bg-white">
       <SideDecor variant="b" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:px-10">
         {/* Header */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">

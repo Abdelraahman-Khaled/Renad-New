@@ -38,7 +38,7 @@ export default function Marquee({ dict }) {
       `}</style>
 
       {/* Two ribbons crossing into an X */}
-      <div className="overflow-hidden bg-surface py-12 sm:py-16">
+      <div className="overflow-hidden bg-surface py-12">
         <div className="relative h-[180px] w-full sm:h-[210px]">
           {/* Teal ribbon — leans up (steeper on mobile so the X stays clean on narrow screens) */}
           <div className="absolute left-1/2 top-1/2 w-[150%] -translate-x-1/2 -translate-y-1/2 rotate-10 bg-primary py-3 shadow-lift sm:w-[130%] sm:rotate-5">

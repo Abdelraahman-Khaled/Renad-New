@@ -5,7 +5,7 @@ export default function FinalCTA({ dict, lang }) {
 
   return (
     <section id="contact" className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 pb-24 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-linear-to-br from-primary-dark via-primary to-primary px-8 py-20 text-center shadow-lift sm:px-12 lg:pb-28 pt-18">
           {/* decorative accents */}
           <div className="pointer-events-none absolute inset-0" aria-hidden>

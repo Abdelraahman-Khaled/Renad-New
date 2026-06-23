@@ -9,7 +9,7 @@ export default function HowWeWork({ dict }) {
   return (
     <section id="how-we-work" className="relative overflow-hidden bg-surface">
       <SideDecor variant="a" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:px-10">
         <div className="max-w-2xl">
           <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
             {t.eyebrow}

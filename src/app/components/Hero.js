@@ -42,7 +42,7 @@ export default function Hero() {
   const s = slides[active];
 
   return (
-    <section id="top" className="bg-white px-3 pt-3 sm:px-4 lg:px-6 mb-6">
+    <section id="top" className="bg-white px-3 pt-3 sm:px-4 lg:px-6 mb-12">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl">
         {/* Full-bleed background */}
         <div

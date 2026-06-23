@@ -13,7 +13,7 @@ export default function ProductCategories({ dict, lang }) {
   return (
     <section id="categories" className="relative overflow-hidden bg-surface">
       <SideDecor variant="b" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:px-10">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-lg font-semibold uppercase tracking-[0.2em] text-cta">

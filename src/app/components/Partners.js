@@ -135,7 +135,7 @@ export default function Partners() {
 
   return (
     <section id="partners" className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10">
         {/* Header Section with Search */}
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>

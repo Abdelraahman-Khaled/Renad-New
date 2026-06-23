@@ -9,7 +9,7 @@ export default function Pillars({ dict }) {
   return (
     <section id="why" className="relative overflow-hidden bg-white">
       <SideDecor variant="a" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-18 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:px-10">
         {/* Heading */}
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-base font-semibold uppercase tracking-[0.18em] text-cta">
